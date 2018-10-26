@@ -1,0 +1,10 @@
+<label class="slds-checkbox--toggle slds-grid">
+  <abbr class="slds-required" *ngIf="required" title="required">*</abbr>
+  <span class="slds-form-element__label slds-m-bottom--none" [nglInternalOutlet]="_label"></span>
+  <ng-content></ng-content>
+  <span class="slds-checkbox--faux_container" [attr.for]="uid" aria-live="assertive">
+    <span class="slds-checkbox--faux"></span>
+    <span class="slds-checkbox--on">{{enabledText}}</span>
+    <span class="slds-checkbox--off">{{disabledText}}</span></span>
+</label>
+<div class="slds-form-element__help" *ngIf="error" [id]="'error_' + uid">{{error}}</div>

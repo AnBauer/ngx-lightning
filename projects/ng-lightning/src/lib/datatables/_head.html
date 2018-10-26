@@ -1,0 +1,8 @@
+<div class="slds-truncate" *ngIf="!sortable" [attr.title]="heading" [nglInternalOutlet]="header"></div><a
+  class="slds-th__action slds-text-link--reset" *ngIf="sortable" (click)="sortChange()"> <span
+  class="slds-assistive-text">Sort Column</span><span class="slds-truncate" [attr.title]="heading"
+                                                      [nglInternalOutlet]="header"></span>
+  <div class="slds-icon_container" title="Sort Column">
+    <svg class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon" nglIcon="arrowdown"></svg>
+  </div>
+</a>

@@ -1,0 +1,26 @@
+<thead>
+<tr class="slds-text-title--caps">
+  <th *ngFor="let col of columns; trackBy:columnTrackBy" ngl-internal-datatatable-head="ngl-internal-datatatable-head"
+      [heading]="col.heading" [headingTpl]="col.headingTpl?.templateRef" [sortable]="col.sortable"
+      [sortOrder]="getColumnSortOrder(col)" (onSort)="onColumnSort(col, $event)" [ngClass]="col.headClass"></th>
+</tr>
+</thead>
+<tbody>
+<ng-template #noData="#noData">
+  <tr>
+    <td [attr.colspan]="columns.length">
+      <ng-template [ngTemplateOutlet]="noRowsOverlay?.templateRef"></ng-template>
+    </td>
+  </tr>
+</ng-template>
+<ng-container *ngIf="data &amp;&amp; data.length &gt; 0; else noData">
+  <tr *ngFor="let d of data; let i = index; trackBy:dataTrackBy" (click)="rowClick($event, d)">
+    <td *ngFor="let col of columns; trackBy:columnTrackBy" [ngClass]="col.cellClass"
+        ngl-internal-datatatable-cell="ngl-internal-datatatable-cell" [row]="d" [column]="col" [index]="i"></td>
+  </tr>
+</ng-container>
+</tbody>
+<div class="ngl-datatable-loading slds-grid slds-grid--vertical-align-center slds-grid--align-center"
+     *ngIf="showLoading">
+  <ng-template [ngTemplateOutlet]="loadingOverlay.templateRef"></ng-template>
+</div>

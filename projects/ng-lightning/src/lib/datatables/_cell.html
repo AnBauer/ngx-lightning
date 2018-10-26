@@ -1,0 +1,4 @@
+<ng-template *ngIf="column.cellTpl"
+             [ngTemplateOutlet]="column.cellTpl.templateRef"
+             [ngTemplateOutletContext]="context"></ng-template>
+<span *ngIf="!column.cellTpl">{{ value }}</span>

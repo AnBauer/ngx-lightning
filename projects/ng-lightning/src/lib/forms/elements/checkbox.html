@@ -1,0 +1,10 @@
+<div class="slds-form-element__control">
+  <span class="slds-checkbox">
+    <abbr class="slds-required" *ngIf="required" title="required">*</abbr><ng-content></ng-content>
+    <label class="slds-checkbox__label" [attr.for]="uid">
+      <span class="slds-checkbox--faux"></span>
+      <span class="slds-form-element__label" [nglInternalOutlet]="_label"></span>
+    </label>
+  </span>
+</div>
+<div class="slds-form-element__help" *ngIf="error" [id]="'error_' + uid">{{error}}</div>
