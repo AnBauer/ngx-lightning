@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../test/util/helpers';
-import {NglImagesModule} from './module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { NglImagesModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -21,15 +21,15 @@ describe('Figure Component', () => {
   it('should render the figure element with default values', () => {
     const fixture = createTestComponent();
     const figure = getFigureElement(fixture.nativeElement);
-    expect(figure).toHaveCssClass('slds-image');
-    expect(figure).toHaveCssClass('slds-image--card');
+    expect(hasCssClass(figure, 'slds-image')).toBeTruthy();
+    expect(hasCssClass(figure, 'slds-image--card')).toBeTruthy();
   });
 
   it('should render the caption element based on title', () => {
     const fixture = createTestComponent(`<figure nglFigure [nglTitle]="title"></figure>`);
     const caption = getFigureCaptionElement(fixture.nativeElement);
-    expect(caption).toHaveCssClass('slds-image__title');
-    expect(caption).toHaveCssClass('slds-image__title--card');
+    expect(hasCssClass(caption, 'slds-image__title')).toBeTruthy();
+    expect(hasCssClass(caption, 'slds-image__title--card')).toBeTruthy();
 
     expect((<HTMLSpanElement>caption.firstElementChild).title).toBe('Image title');
     expect(caption.textContent).toBe('Image title');

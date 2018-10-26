@@ -1,8 +1,8 @@
-import {async, fakeAsync, tick, TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component, Injectable} from '@angular/core';
-import {createGenericTestComponent, dispatchEvent} from '../../test/util/helpers';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { Component, Injectable } from '@angular/core';
+import { createGenericTestComponent, dispatchEvent, hasCssClass } from '../../test/util/helpers';
 import * as Tether from '../../test/mock/tether';
-import {NglPopoversModule} from './module';
+import { NglPopoversModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -34,7 +34,7 @@ describe('Popovers', () => {
   it('should render popover correctly', () => {
     const fixture = createTestComponent(`<ngl-popover>My content</ngl-popover>`);
     const popoverEl = getPopoverElement(fixture.nativeElement);
-    expect(popoverEl).toHaveCssClass('slds-popover');
+    expect(hasCssClass(popoverEl, 'slds-popover')).toBeTruthy();
     expect(popoverEl.textContent.trim()).toBe('My content');
     fixture.destroy();
   });
@@ -57,8 +57,8 @@ describe('Popovers', () => {
   it('should render the created popover correctly', () => {
     const fixture = createTestComponent();
     const popoverEl = getPopoverElement(fixture.nativeElement);
-    expect(popoverEl).toHaveCssClass('slds-popover');
-    expect(popoverEl).toHaveCssClass('slds-nubbin--bottom'); // Top placement
+    expect(hasCssClass(popoverEl, 'slds-popover')).toBeTruthy();
+    expect(hasCssClass(popoverEl, 'slds-nubbin--bottom')).toBeTruthy(); // Top placement
     expect(popoverEl.textContent.trim()).toBe('I am a tooltip');
     fixture.destroy();
   });
@@ -94,13 +94,13 @@ describe('Popovers', () => {
 
     componentInstance.placement = 'left';
     fixture.detectChanges();
-    expect(popoverEl).toHaveCssClass('slds-nubbin--right');
-    expect(popoverEl).not.toHaveCssClass('slds-nubbin--bottom');
+    expect(hasCssClass(popoverEl, 'slds-nubbin--right')).toBeTruthy();
+    expect(hasCssClass(popoverEl, 'slds-nubbin--bottom')).toBeFalsy();
 
     componentInstance.placement = 'bottom';
     fixture.detectChanges();
-    expect(popoverEl).toHaveCssClass('slds-nubbin--top');
-    expect(popoverEl).not.toHaveCssClass('slds-nubbin--right');
+    expect(hasCssClass(popoverEl, 'slds-nubbin--top')).toBeTruthy();
+    expect(hasCssClass(popoverEl, 'slds-nubbin--right')).toBeFalsy();
     fixture.destroy();
   });
 
@@ -110,20 +110,20 @@ describe('Popovers', () => {
     const popoverEl = getPopoverElement(nativeElement);
 
     fixture.detectChanges();
-    expect(popoverEl).not.toHaveCssClass('slds-theme--info');
+    expect(hasCssClass(popoverEl, 'slds-theme--info')).toBeFalsy();
 
     componentInstance.theme = 'info';
     fixture.detectChanges();
-    expect(popoverEl).toHaveCssClass('slds-theme--info');
+    expect(hasCssClass(popoverEl, 'slds-theme--info')).toBeTruthy();
 
     componentInstance.theme = 'error';
     fixture.detectChanges();
-    expect(popoverEl).toHaveCssClass('slds-theme--error');
-    expect(popoverEl).not.toHaveCssClass('slds-theme--info');
+    expect(hasCssClass(popoverEl, 'slds-theme--error')).toBeTruthy();
+    expect(hasCssClass(popoverEl, 'slds-theme--info')).toBeFalsy();
 
     componentInstance.theme = null;
     fixture.detectChanges();
-    expect(popoverEl).not.toHaveCssClass('slds-theme--error');
+    expect(hasCssClass(popoverEl, 'slds-theme--error')).toBeFalsy();
     fixture.destroy();
   });
 
@@ -142,7 +142,7 @@ describe('Popovers', () => {
   it('should have tooltip appearence', () => {
     const fixture = createTestComponent(`<ng-template #tip></ng-template><span [nglPopover]="tip" nglOpen="true" nglTooltip></span>`);
     const popoverEl = getPopoverElement(fixture.nativeElement);
-    expect(popoverEl).toHaveCssClass('slds-popover--tooltip');
+    expect(hasCssClass(popoverEl, 'slds-popover--tooltip')).toBeTruthy();
   });
 
   it('should destroy popover when host is destroyed', () => {

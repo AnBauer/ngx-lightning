@@ -1,4 +1,4 @@
-import { Directive, Input, ContentChild } from '@angular/core';
+import { ContentChild, Directive, Input } from '@angular/core';
 import { NglDatatableCell } from './cell';
 import { NglDatatableHeadingTemplateDirective } from './heading';
 import { toBoolean } from '../util/util';

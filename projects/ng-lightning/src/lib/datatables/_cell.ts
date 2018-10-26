@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
 import { NglDatatableColumn } from './column';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Optional } from '@angular/core';
+import { Directive, ElementRef, Optional, Renderer2 } from '@angular/core';
 import { NglPillComponent } from './pill';
 
 @Directive({

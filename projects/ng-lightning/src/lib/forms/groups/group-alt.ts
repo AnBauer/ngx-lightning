@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, HostBinding, ContentChild, AfterContentInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, Component, ContentChild, HostBinding, Input } from '@angular/core';
 import { NglFormGroupComponent } from './group';
 import { NglFormLabelTemplateDirective } from '../form-label';
 

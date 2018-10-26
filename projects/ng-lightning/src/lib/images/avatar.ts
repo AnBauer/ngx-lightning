@@ -1,5 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy, ElementRef, Renderer2, OnInit } from '@angular/core';
-import {replaceClass} from '../util/util';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { replaceClass } from '../util/util';
 
 @Component({
   selector: 'ngl-avatar',

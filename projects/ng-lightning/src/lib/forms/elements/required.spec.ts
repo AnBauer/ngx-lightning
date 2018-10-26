@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../../test/util/helpers';
-import {NglFormsModule} from '../module';
-import {getRequiredElement} from './input.spec';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { NglFormsModule } from '../module';
+import { getRequiredElement } from './input.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -18,7 +18,7 @@ describe('`NglFormElementRequired`', () => {
     fixture.componentInstance.required = true;
     fixture.detectChanges();
     const abbrEl = getRequiredElement(fixture.nativeElement);
-    expect(abbrEl).toHaveCssClass('slds-required');
+    expect(hasCssClass(abbrEl, 'slds-required')).toBeTruthy();
 
     fixture.componentInstance.required = false;
     fixture.detectChanges();

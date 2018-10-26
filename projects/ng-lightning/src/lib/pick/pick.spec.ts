@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture, async}  from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
-import {createGenericTestComponent, selectElements, dispatchKeyEvent} from '../../test/util/helpers';
-import {By} from '@angular/platform-browser';
-import {NglPickModule} from './module';
+import { createGenericTestComponent, dispatchKeyEvent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { By } from '@angular/platform-browser';
+import { NglPickModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -56,17 +56,17 @@ describe('`Pick`', () => {
 
     fixture.componentInstance.selected = 'op1';
     fixture.detectChanges();
-    expect(options[0]).toHaveCssClass('my-active-class');
-    expect(options[0]).not.toHaveCssClass('slds-button--brand');
-    expect(options[1]).not.toHaveCssClass('another-class');
-    expect(options[0]).not.toHaveCssClass('slds-button--brand');
+    expect(hasCssClass(options[0], 'my-active-class')).toBeTruthy();
+    expect(hasCssClass(options[0], 'slds-button--brand')).toBeFalsy();
+    expect(hasCssClass(options[1], 'another-class')).toBeFalsy();
+    expect(hasCssClass(options[0], 'slds-button--brand')).toBeFalsy();
 
     fixture.componentInstance.selected = 'op2';
     fixture.detectChanges();
-    expect(options[0]).not.toHaveCssClass('my-active-class');
-    expect(options[0]).not.toHaveCssClass('slds-button--brand');
-    expect(options[1]).toHaveCssClass('another-class');
-    expect(options[0]).not.toHaveCssClass('slds-button--brand');
+    expect(hasCssClass(options[0], 'my-active-class')).toBeFalsy();
+    expect(hasCssClass(options[0], 'slds-button--brand')).toBeFalsy();
+    expect(hasCssClass(options[1], 'another-class')).toBeTruthy();
+    expect(hasCssClass(options[0], 'slds-button--brand')).toBeFalsy();
   });
 
   it('should have proper selected value when `nglPickOption` is clicked', () => {

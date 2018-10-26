@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../../test/util/helpers';
-import {NglFormsModule} from '../module';
-import {getRequiredElement, getErrorElement} from './input.spec';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { NglFormsModule } from '../module';
+import { getErrorElement, getRequiredElement } from './input.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -30,7 +30,7 @@ describe('`NglFormCheckboxToggle`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
-    expect(element).toHaveCssClass('slds-form-element');
+    expect(hasCssClass(element, 'slds-form-element')).toBeTruthy();
 
     const labelEl = getLabelElement(fixture.nativeElement);
     expect(labelEl).toHaveText('My label');
@@ -51,7 +51,7 @@ describe('`NglFormCheckboxToggle`', () => {
     fixture.componentInstance.required = true;
     fixture.detectChanges();
     const abbrEl = getRequiredElement(fixture.nativeElement);
-    expect(abbrEl).toHaveCssClass('slds-required');
+    expect(hasCssClass(abbrEl, 'slds-required')).toBeTruthy();
 
     fixture.componentInstance.required = false;
     fixture.detectChanges();

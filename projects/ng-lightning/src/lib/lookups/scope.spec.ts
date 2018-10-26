@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, selectElements} from '../../test/util/helpers';
-import {NglLookupsModule} from './module';
-import {expectMenuExpanded, getPill} from './lookup.spec';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { NglLookupsModule } from './module';
+import { expectMenuExpanded, getPill } from './lookup.spec';
 
 const createTestComponent = (html?: string) =>
   createGenericTestComponent(TestComponent, html) as ComponentFixture<TestComponent>;
@@ -34,9 +34,9 @@ function clickScopeMenuTrigger(fixture: ComponentFixture<any>) {
 function expectScopeMenuOpen(element: HTMLElement, isOpen: boolean) {
   const dropdownEl = element.querySelector('.slds-align-middle > span');
   if (isOpen) {
-    expect(dropdownEl).toHaveCssClass('slds-is-open');
+    expect(hasCssClass(dropdownEl, 'slds-is-open')).toBeTruthy();
   } else {
-    expect(dropdownEl).not.toHaveCssClass('slds-is-open');
+    expect(hasCssClass(dropdownEl, 'slds-is-open')).toBeFalsy();
   }
 }
 

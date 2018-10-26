@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../test/util/helpers';
-import {NglPillsModule} from './module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { NglPillsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -27,10 +27,10 @@ describe('NglPill', () => {
     const pill = getPill(fixture.nativeElement);
     const text = getLabelEl(pill);
     const removeButton = getRemoveButton(pill);
-    expect(pill).toHaveCssClass('slds-pill');
+    expect(hasCssClass(pill, 'slds-pill')).toBeTruthy();
     expect(text.tagName).toBe('A');
     expect(text.textContent.trim()).toBe('I am a pill!');
-    expect(removeButton).toHaveCssClass('slds-pill__remove');
+    expect(hasCssClass(removeButton, 'slds-pill__remove')).toBeTruthy();
   });
 
   it('should render unlinked correctly', () => {

@@ -1,4 +1,4 @@
-import {NglConfig} from './config';
+import { NglConfig } from './config';
 
 describe('`NglConfig`', () => {
 

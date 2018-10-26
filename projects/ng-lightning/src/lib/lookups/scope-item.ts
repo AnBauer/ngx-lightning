@@ -1,4 +1,4 @@
-import {Directive, TemplateRef, Input, Output, EventEmitter} from '@angular/core';
+import { Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 
 @Directive({selector: '[nglPolymorphicItem]'})
 export class NglLookupScopeItem {

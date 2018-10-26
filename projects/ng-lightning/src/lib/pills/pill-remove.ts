@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit } from '@angular/core';
-import {toBoolean} from '../util/util';
-import {NglPillComponent} from './pill';
+import { toBoolean } from '../util/util';
+import { NglPillComponent } from './pill';
 
 @Directive({
   selector: '[nglPillRemove]',

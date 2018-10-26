@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBinding, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output, TemplateRef } from '@angular/core';
 
 @Component({
   selector       : 'th[ngl-internal-datatatable-head]',

@@ -1,7 +1,7 @@
-import {Component, Input, Output, ElementRef, EventEmitter, HostListener, ViewChild, ContentChild} from '@angular/core';
-import {toBoolean, uniqueId} from '../util/util';
-import {NglModalFooterDirective} from './footer';
-import {NglModalHeaderTemplate} from './header';
+import { Component, ContentChild, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { toBoolean, uniqueId } from '../util/util';
+import { NglModalFooterDirective } from './footer';
+import { NglModalHeaderTemplate } from './header';
 
 @Component({
   selector: 'ngl-modal',

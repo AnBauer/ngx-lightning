@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture, async}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, selectElements} from '../../test/util/helpers';
-import {NglPickModule} from './module';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, selectElements } from '../../test/util/helpers';
+import { NglPickModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;

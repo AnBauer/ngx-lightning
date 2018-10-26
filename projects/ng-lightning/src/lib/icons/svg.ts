@@ -1,5 +1,5 @@
-import {Component, Input, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
-import {NglConfig, NglConfigurable} from '../config/config';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { NglConfig, NglConfigurable } from '../config/config';
 
 @Component({
   selector: 'svg[nglIcon]',

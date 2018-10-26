@@ -3,6 +3,7 @@
  */
 import {TestBed, ComponentFixture} from '@angular/core/testing';
 import { NGL_CONFIG, NglConfig } from '../../lib/config/config';
+import { element } from 'protractor';
 
 // Default configuration for every TestComponent
 beforeEach(() => {
@@ -45,4 +46,8 @@ export function createGenericTestComponent<T>(type: {new (...args: any[]): T}, h
     fixture.detectChanges();
   }
   return fixture as ComponentFixture<T>;
+}
+
+export function hasCssClass(el: HTMLElement | SVGElement | Element, cssClass: string): boolean {
+  return (el.getAttribute('class') || '').split(' ').includes(cssClass);
 }

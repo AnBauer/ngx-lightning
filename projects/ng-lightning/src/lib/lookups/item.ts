@@ -1,4 +1,4 @@
-import {Directive, TemplateRef} from '@angular/core';
+import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({selector: '[nglLookupItem]'})
 export class NglLookupItemTemplateDirective {

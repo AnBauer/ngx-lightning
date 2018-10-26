@@ -1,7 +1,7 @@
-import {Component, Input, ElementRef, Renderer2, ChangeDetectionStrategy, Attribute, Optional, OnChanges} from '@angular/core';
-import {toBoolean, replaceClass} from '../util/util';
-import {NglButtonDirective} from '../buttons/button';
-import {NglButtonIconDirective} from '../buttons/button-icon';
+import { Attribute, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, Optional, Renderer2 } from '@angular/core';
+import { replaceClass, toBoolean } from '../util/util';
+import { NglButtonDirective } from '../buttons/button';
+import { NglButtonIconDirective } from '../buttons/button-icon';
 
 export type NglIconCategory = 'action' | 'custom' | 'doctype' | 'standard' | 'utility';
 

@@ -1,4 +1,4 @@
-import { Component, Input, QueryList, ContentChildren, Output, EventEmitter, AfterContentInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, Output, QueryList } from '@angular/core';
 import { isInt, toBoolean } from '../util/util';
 import { NglTabDirective } from './tab';
 

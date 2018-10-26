@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {NglPickDirective} from './pick';
-import {NglPickOptionDirective} from './pick-option';
+import { NglPickDirective } from './pick';
+import { NglPickOptionDirective } from './pick-option';
 
 const NGL_PICK_DIRECTIVES = [
   NglPickDirective,

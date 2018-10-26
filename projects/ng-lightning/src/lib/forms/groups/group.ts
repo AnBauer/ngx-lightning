@@ -1,15 +1,15 @@
 import {
-  Component,
-  Input,
+  AfterContentInit,
   ChangeDetectionStrategy,
-  HostBinding,
+  Component,
   ContentChild,
-  TemplateRef,
+  HostBinding,
+  Input,
   OnChanges,
-  AfterContentInit
+  TemplateRef
 } from '@angular/core';
-import {uniqueId} from '../../util/util';
-import {NglFormLabelTemplateDirective, getFormLabel} from '../form-label';
+import { uniqueId } from '../../util/util';
+import { getFormLabel, NglFormLabelTemplateDirective } from '../form-label';
 
 @Component({
   selector: 'fieldset[ngl-form-group]',

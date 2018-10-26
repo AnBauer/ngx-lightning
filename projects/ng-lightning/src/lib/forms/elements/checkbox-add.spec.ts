@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../../test/util/helpers';
-import {NglFormsModule} from '../module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { NglFormsModule } from '../module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -26,16 +26,16 @@ describe('`NglFormCheckboxAdd`', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
 
-    expect(element).toHaveCssClass('slds-checkbox--add-button');
+    expect(hasCssClass(element, 'slds-checkbox--add-button')).toBeTruthy();
 
     const labelEl = getLabelElement(element);
-    expect(labelEl).toHaveCssClass('slds-checkbox--faux');
+    expect(hasCssClass(labelEl, 'slds-checkbox--faux')).toBeTruthy();
 
     const assistiveEl = getAssistiveElement(labelEl);
     expect(assistiveEl).toHaveText('Add product');
 
     const inputEl = getInputElement(element);
-    expect(inputEl).toHaveCssClass('slds-assistive-text');
+    expect(hasCssClass(inputEl, 'slds-assistive-text')).toBeTruthy();
 
   });
 

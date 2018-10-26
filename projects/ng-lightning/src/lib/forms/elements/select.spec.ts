@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../../test/util/helpers';
-import {NglFormsModule} from '../module';
-import {getLabelElement, getRequiredElement, getErrorElement} from './input.spec';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { NglFormsModule } from '../module';
+import { getErrorElement, getLabelElement, getRequiredElement } from './input.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -18,13 +18,13 @@ describe('`NglFormSelect`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
-    expect(element).toHaveCssClass('slds-form-element');
+    expect(hasCssClass(element, 'slds-form-element')).toBeTruthy();
 
     const labelEl = getLabelElement(element);
     expect(labelEl).toHaveText('My label');
 
     const inputEl = getInputElement(element);
-    expect(inputEl).toHaveCssClass('slds-select');
+    expect(hasCssClass(inputEl, 'slds-select')).toBeTruthy();
 
     const inputId = inputEl.getAttribute('id');
     expect(inputId).toMatch(/form_element_/);
@@ -38,7 +38,7 @@ describe('`NglFormSelect`', () => {
     fixture.componentInstance.required = true;
     fixture.detectChanges();
     const abbrEl = getRequiredElement(fixture.nativeElement);
-    expect(abbrEl).toHaveCssClass('slds-required');
+    expect(hasCssClass(abbrEl, 'slds-required')).toBeTruthy();
 
     fixture.componentInstance.required = false;
     fixture.detectChanges();

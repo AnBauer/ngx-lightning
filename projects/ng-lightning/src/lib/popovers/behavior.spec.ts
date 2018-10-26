@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, dispatchEvent} from '../../test/util/helpers';
-import {NglPopoversModule} from './module';
-import {getPopoverElement} from './popover.spec';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, dispatchEvent } from '../../test/util/helpers';
+import { NglPopoversModule } from './module';
+import { getPopoverElement } from './popover.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;

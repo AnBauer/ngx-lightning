@@ -1,13 +1,14 @@
 import {
-  Component,
+  AfterContentInit,
   ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter,
+  Component,
   ContentChild,
-  ViewChild,
   ElementRef,
-  AfterContentInit, OnDestroy
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+  ViewChild
 } from '@angular/core';
 import { NglPicklistItemTemplateDirective } from './item';
 import { NglPickDirective } from '../pick/pick';

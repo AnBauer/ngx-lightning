@@ -1,4 +1,4 @@
-import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'td[nglDay]',

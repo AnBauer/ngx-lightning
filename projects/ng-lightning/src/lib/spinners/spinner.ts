@@ -1,5 +1,5 @@
-import {Component, Input, ChangeDetectionStrategy, HostBinding} from '@angular/core';
-import {toBoolean} from '../util/util';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { toBoolean } from '../util/util';
 
 @Component({
   selector: 'ngl-spinner',

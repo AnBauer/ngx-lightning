@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Renderer2, Input } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[nglCrop]',

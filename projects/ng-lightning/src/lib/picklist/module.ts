@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {NglIconsModule} from '../icons/module';
-import {NglMenusModule} from '../menus/module';
-import {NglPickModule} from '../pick/module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NglIconsModule } from '../icons/module';
+import { NglMenusModule } from '../menus/module';
+import { NglPickModule } from '../pick/module';
 
-import {NglPicklistComponent} from './picklist';
-import {NglPicklistItemTemplateDirective} from './item';
+import { NglPicklistComponent } from './picklist';
+import { NglPicklistItemTemplateDirective } from './item';
 
 const NGL_PICKLIST_DIRECTIVES = [
   NglPicklistComponent,

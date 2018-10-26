@@ -1,14 +1,15 @@
 import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  HostListener,
   Input,
   Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-  ElementRef,
-  ChangeDetectorRef,
-  Renderer2,
-  HostListener,
-  HostBinding, AfterViewInit
+  Renderer2
 } from '@angular/core';
 import { replaceClass, toBoolean, uniqueId } from '../util/util';
 

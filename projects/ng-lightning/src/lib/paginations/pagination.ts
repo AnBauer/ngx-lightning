@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { toBoolean } from '../util/util';
 
 export interface NglPage {

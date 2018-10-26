@@ -1,6 +1,6 @@
-import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {NglBadgesModule} from './module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { NglBadgesModule } from './module';
 import { createGenericTestComponent } from '../../test/util/helpers';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>

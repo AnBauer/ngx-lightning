@@ -1,5 +1,5 @@
-import {Directive, Input, TemplateRef, Output, EventEmitter, ContentChild} from '@angular/core';
-import {NglTabDirective} from './tab';
+import { ContentChild, Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import { NglTabDirective } from './tab';
 
 /*
  * <ngl-tab [heading="..."]>

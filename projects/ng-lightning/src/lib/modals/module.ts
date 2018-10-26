@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {NglIconsModule} from '../icons/module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NglIconsModule } from '../icons/module';
 
-import {NglModal} from './modal';
-import {NglModalFooterDirective} from './footer';
-import {NglModalHeaderTemplate} from './header';
+import { NglModal } from './modal';
+import { NglModalFooterDirective } from './footer';
+import { NglModalHeaderTemplate } from './header';
 
 const NGL_MODAL_DIRECTIVES = [
   NglModal,

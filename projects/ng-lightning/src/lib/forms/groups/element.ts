@@ -1,17 +1,18 @@
 import {
-  Component,
-  Input,
+  AfterContentInit,
   ChangeDetectionStrategy,
+  Component,
   ContentChild,
-  Optional,
   ElementRef,
+  Input,
+  OnChanges,
+  Optional,
   Renderer2,
-  TemplateRef,
-  OnChanges, AfterContentInit
+  TemplateRef
 } from '@angular/core';
 import { NglFormGroupAlternateComponent } from './group-alt';
 import { NglFormCheckboxDirective } from '../elements/input';
-import { NglFormLabelTemplateDirective, getFormLabel } from '../form-label';
+import { getFormLabel, NglFormLabelTemplateDirective } from '../form-label';
 import { uniqueId } from '../../util/util';
 
 @Component({

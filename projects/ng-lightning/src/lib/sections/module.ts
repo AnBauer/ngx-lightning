@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {NglSectionComponent} from './section';
-import {NglIconsModule} from '../icons/module';
+import { NglSectionComponent } from './section';
+import { NglIconsModule } from '../icons/module';
 
 @NgModule({
   declarations: [NglSectionComponent],

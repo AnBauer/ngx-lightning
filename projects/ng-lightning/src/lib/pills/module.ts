@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {NglPillComponent} from './pill';
-import {NglPillImageDirective} from './pill-image';
-import {NglPillLinkDirective} from './pill-link';
-import {NglPillRemoveDirective} from './pill-remove';
-import {NglIconsModule} from '../icons/module';
+import { NglPillComponent } from './pill';
+import { NglPillImageDirective } from './pill-image';
+import { NglPillLinkDirective } from './pill-link';
+import { NglPillRemoveDirective } from './pill-remove';
+import { NglIconsModule } from '../icons/module';
 
 const NGL_PILL_DIRECTIVES = [
   NglPillComponent,

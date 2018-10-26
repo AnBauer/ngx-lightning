@@ -1,5 +1,5 @@
-import {Directive, Input, ElementRef, Renderer2} from '@angular/core';
-import {replaceClass} from '../util/util';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { replaceClass } from '../util/util';
 
 @Directive({
   selector: '[nglButton]',

@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../../test/util/helpers';
-import {NglFormsModule} from '../module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { NglFormsModule } from '../module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -29,13 +29,13 @@ describe('`NglFormInput`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
-    expect(element).toHaveCssClass('slds-form-element');
+    expect(hasCssClass(element, 'slds-form-element')).toBeTruthy();
 
     const labelEl = getLabelElement(element);
     expect(labelEl).toHaveText('My label');
 
     const inputEl = getInputElement(element);
-    expect(inputEl).toHaveCssClass('slds-input');
+    expect(hasCssClass(inputEl, 'slds-input')).toBeTruthy();
 
     const inputId = inputEl.getAttribute('id');
     expect(inputId).toMatch(/form_element_/);
@@ -55,14 +55,14 @@ describe('`NglFormInput`', () => {
     const fixture = createTestComponent(`<ngl-form-element [error]="error"><input nglFormControl type="text"></ngl-form-element>`);
     const element = fixture.nativeElement.firstElementChild;
 
-    expect(element).not.toHaveCssClass('slds-has-error');
+    expect(hasCssClass(element, 'slds-has-error')).toBeFalsy();
     expect(getErrorElement(element)).toBeFalsy();
     fixture.componentInstance.error = 'This is an error!';
     fixture.detectChanges();
 
     const errorEl = getErrorElement(element);
     const inputEl = getInputElement(element);
-    expect(element).toHaveCssClass('slds-has-error');
+    expect(hasCssClass(element, 'slds-has-error')).toBeTruthy();
     expect(errorEl.id).toEqual(inputEl.getAttribute('aria-describedby'));
     expect(errorEl).toHaveText('This is an error!');
   });

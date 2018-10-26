@@ -1,15 +1,17 @@
 import {
-  Component,
-  Input,
+  AfterContentInit,
   ChangeDetectorRef,
+  Component,
   ContentChild,
   ContentChildren,
-  QueryList,
   ElementRef,
-  Renderer2,
+  EventEmitter,
   HostBinding,
+  Input,
+  OnDestroy,
   Output,
-  EventEmitter, OnDestroy, AfterContentInit
+  QueryList,
+  Renderer2
 } from '@angular/core';
 import { NglDatatableColumn } from './column';
 import { NglDatatableLoadingOverlayDirective, NglDatatableNoRowsOverlayDirective } from './overlays';

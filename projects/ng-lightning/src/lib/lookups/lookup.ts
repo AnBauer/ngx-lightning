@@ -1,20 +1,23 @@
 import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
-  ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter,
   ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
   Renderer2,
-  ChangeDetectorRef,
-  ViewChild,
   TemplateRef,
-  OnChanges, OnInit, AfterViewChecked, OnDestroy
+  ViewChild
 } from '@angular/core';
 import { NglLookupItemTemplateDirective, NglLookupLabelTemplateDirective } from './item';
 import { NglLookupScopeItem } from './scope-item';
-import { uniqueId, isObject } from '../util/util';
+import { isObject, uniqueId } from '../util/util';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, publish, refCount, skip, switchMap, tap } from 'rxjs/operators';
 

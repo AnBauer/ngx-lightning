@@ -1,5 +1,5 @@
-import {Directive, HostListener, HostBinding} from '@angular/core';
-import {NglPopoverTriggerDirective} from './trigger';
+import { Directive, HostBinding, HostListener } from '@angular/core';
+import { NglPopoverTriggerDirective } from './trigger';
 
 @Directive({
   selector: '[nglPopover][nglPopoverBehavior]',

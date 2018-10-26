@@ -1,5 +1,5 @@
-import {Directive, HostListener, ElementRef, OnDestroy} from '@angular/core';
-import {NglDropdownDirective} from './dropdown';
+import { Directive, ElementRef, HostListener, OnDestroy } from '@angular/core';
+import { NglDropdownDirective } from './dropdown';
 
 @Directive({
   selector: '[nglDropdownTrigger]',

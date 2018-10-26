@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, HostListener } from '@angular/core';
-import { uniqueId, toBoolean } from '../util/util';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { toBoolean, uniqueId } from '../util/util';
 
 export interface NglInternalDate {
   year: number;

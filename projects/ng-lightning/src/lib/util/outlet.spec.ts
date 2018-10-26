@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
 import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglInternalOutletModule } from './outlet.module';

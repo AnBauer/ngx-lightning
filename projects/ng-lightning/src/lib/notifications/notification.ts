@@ -1,17 +1,17 @@
 import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  OnChanges,
-  ElementRef,
-  Renderer2,
-  Optional,
   ChangeDetectionStrategy,
-  OnDestroy
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Optional,
+  Output,
+  Renderer2
 } from '@angular/core';
 import { NglNotificationClose } from './notification-close';
-import { replaceClass, isInt } from '../util/util';
+import { isInt, replaceClass } from '../util/util';
 
 @Component({
   selector       : 'ngl-notification',

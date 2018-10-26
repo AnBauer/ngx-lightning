@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture, async}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, selectElements, dispatchKeyEvent} from '../../test/util/helpers';
-import {By} from '@angular/platform-browser';
-import {NglLookupsModule} from './module';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, dispatchKeyEvent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { By } from '@angular/platform-browser';
+import { NglLookupsModule } from './module';
 
 const createTestComponent = (html?: string) =>
   createGenericTestComponent(TestComponent, html) as ComponentFixture<TestComponent>;
@@ -31,10 +31,10 @@ function expectSearchIcon(element: HTMLElement, exists: boolean) {
   const containerEl = element.querySelector('.slds-input-has-icon');
   const svg = containerEl.querySelector('svg.slds-input__icon');
   if (exists) {
-    expect(containerEl).toHaveCssClass('slds-input-has-icon--right');
+    expect(hasCssClass(containerEl, 'slds-input-has-icon--right')).toBeTruthy();
     expect(svg).toBeTruthy();
   } else {
-    expect(containerEl).not.toHaveCssClass('slds-input-has-icon--right');
+    expect(hasCssClass(containerEl, 'slds-input-has-icon--right')).toBeFalsy();
     expect(svg).toBeFalsy();
   }
 }
@@ -50,13 +50,13 @@ export function expectMenuExpanded(element: HTMLElement, isOpen: boolean) {
 
   if (isOpen) {
     expect(input.getAttribute('aria-expanded')).toBe('true');
-    expect(lookup).toHaveCssClass('slds-is-open');
+    expect(hasCssClass(lookup, 'slds-is-open')).toBeTruthy();
     expect(menu).toBeTruthy();
   } else {
     if (input) {
       expect(input.getAttribute('aria-expanded')).toBe('false');
     }
-    expect(lookup).not.toHaveCssClass('slds-is-open');
+    expect(hasCssClass(lookup, 'slds-is-open')).toBeFalsy();
     expect(menu).toBeFalsy();
   }
 }
@@ -107,8 +107,8 @@ describe('Lookup Component', () => {
     const { menu } = getElements(fixture.nativeElement);
     const headerEl = menu.firstElementChild;
 
-    expect(headerEl).toHaveCssClass('slds-lookup__item--label');
-    expect(headerEl).toHaveCssClass('slds-text-body--small');
+    expect(hasCssClass(headerEl, 'slds-lookup__item--label')).toBeTruthy();
+    expect(hasCssClass(headerEl, 'slds-text-body--small')).toBeTruthy();
     expect(headerEl.textContent).toBe('Header');
   });
 

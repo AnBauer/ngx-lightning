@@ -1,9 +1,9 @@
-import {TestBed, ComponentFixture, async}  from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {Component, DebugElement} from '@angular/core';
-import {createGenericTestComponent, dispatchEvent, dispatchKeyEvent} from '../../test/util/helpers';
-import {NglPicklistModule} from './module';
-import {getOptionElements} from './picklist.spec';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { Component, DebugElement } from '@angular/core';
+import { createGenericTestComponent, dispatchEvent, dispatchKeyEvent, hasCssClass } from '../../test/util/helpers';
+import { NglPicklistModule } from './module';
+import { getOptionElements } from './picklist.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -115,12 +115,12 @@ describe('Picklist filter', () => {
     fixture.detectChanges();
 
     const options = getOptionElements(fixture.nativeElement);
-    expect(options[0]).toHaveCssClass('slds-is-active');
+    expect(hasCssClass(options[0], 'slds-is-active')).toBeTruthy();
 
     dispatchKeyEvent(fixture, By.css('input'), 'keydown.arrowdown');
     fixture.detectChanges();
-    expect(options[0]).not.toHaveCssClass('slds-is-active');
-    expect(options[1]).toHaveCssClass('slds-is-active');
+    expect(hasCssClass(options[0], 'slds-is-active')).toBeFalsy();
+    expect(hasCssClass(options[1], 'slds-is-active')).toBeTruthy();
 
     expect(fixture.componentInstance.pick).toEqual([]);
     dispatchKeyEvent(fixture, By.css('input'), 'keydown.enter');
@@ -137,11 +137,11 @@ describe('Picklist filter', () => {
     dispatchEvent(inputFilter, 'focus');
 
     const options = getOptionElements(fixture.nativeElement);
-    expect(options[2]).not.toHaveCssClass('slds-is-active');
+    expect(hasCssClass(options[2], 'slds-is-active')).toBeFalsy();
 
     dispatchEvent(options[2], 'mouseover');
     fixture.detectChanges();
-    expect(options[2]).toHaveCssClass('slds-is-active');
+    expect(hasCssClass(options[2], 'slds-is-active')).toBeTruthy();
   });
 
   it('should not select with keyboard if not valid', () => {

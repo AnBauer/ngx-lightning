@@ -1,4 +1,4 @@
-import { Directive, Input, TemplateRef, Output, EventEmitter, Optional } from '@angular/core';
+import { Directive, EventEmitter, Input, Optional, Output, TemplateRef } from '@angular/core';
 
 /*
  * <ng-template ngl-tab heading="...">

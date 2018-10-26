@@ -1,7 +1,7 @@
-import {Component, Input, ChangeDetectionStrategy, ContentChild, ChangeDetectorRef, AfterContentInit} from '@angular/core';
-import {NglFormElementComponent} from './element';
-import {NglFormCheckboxDirective} from './input';
-import {NglFormLabelTemplateDirective} from '../form-label';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Input } from '@angular/core';
+import { NglFormElementComponent } from './element';
+import { NglFormCheckboxDirective } from './input';
+import { NglFormLabelTemplateDirective } from '../form-label';
 
 @Component({
   selector: 'ngl-form-checkbox',

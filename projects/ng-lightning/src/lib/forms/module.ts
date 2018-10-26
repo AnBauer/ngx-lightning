@@ -9,11 +9,11 @@ import { NglFormElementCheckboxComponent } from './elements/checkbox';
 import { NglFormElementCheckboxToggleComponent } from './elements/checkbox-toggle';
 import { NglFormElementCheckboxAddComponent } from './elements/checkbox-add';
 import {
-  NglFormInputDirective,
-  NglFormTextareaDirective,
-  NglFormSelectDirective,
   NglFormCheckboxDirective,
-  NglFormRadioDirective
+  NglFormInputDirective,
+  NglFormRadioDirective,
+  NglFormSelectDirective,
+  NglFormTextareaDirective
 } from './elements/input';
 import { NglFormElementRequiredDirective } from './elements/required';
 import { NglFormGroupComponent } from './groups/group';

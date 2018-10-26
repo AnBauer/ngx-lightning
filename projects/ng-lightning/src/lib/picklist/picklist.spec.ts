@@ -1,7 +1,7 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, selectElements} from '../../test/util/helpers';
-import {NglPicklistModule} from './module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { NglPicklistModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -128,11 +128,11 @@ describe('`NglPicklist`', () => {
     fixture.detectChanges();
 
     const picklistEl = fixture.nativeElement.querySelector('.slds-picklist');
-    expect(picklistEl).toHaveCssClass('slds-picklist--fluid');
+    expect(hasCssClass(picklistEl, 'slds-picklist--fluid')).toBeTruthy();
 
     fixture.componentInstance.fluid = false;
     fixture.detectChanges();
-    expect(picklistEl).not.toHaveCssClass('slds-picklist--fluid');
+    expect(hasCssClass(picklistEl, 'slds-picklist--fluid')).toBeFalsy();
   });
 });
 

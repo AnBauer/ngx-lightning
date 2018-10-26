@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, selectElements, dispatchKeyEvent} from '../../test/util/helpers';
-import {NglTabsModule} from './module';
-import {By} from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, dispatchKeyEvent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { NglTabsModule } from './module';
+import { By } from '@angular/platform-browser';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -34,18 +34,18 @@ describe('Tabs Component', () => {
     const tabs = getTabsElement(fixture.nativeElement);
     expect(tabs).toBeDefined();
     expect(tabs.tagName).toBe('UL');
-    expect(tabs).toHaveCssClass('slds-tabs--default__nav');
+    expect(hasCssClass(tabs, 'slds-tabs--default__nav')).toBeTruthy();
   });
 
   it('should render the tab headers', () => {
     const fixture = createTestComponent();
-    expectHeaders(fixture.nativeElement, ['First', 'Second',  'Third tab', 'Fourth tab']);
+    expectHeaders(fixture.nativeElement, ['First', 'Second', 'Third tab', 'Fourth tab']);
   });
 
   it('should render titles with caps', () => {
     const fixture = createTestComponent();
     const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
+    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeTruthy());
   });
 
   it('should render titles with caps based on input', () => {
@@ -54,11 +54,11 @@ describe('Tabs Component', () => {
         <ng-template ngl-tab></ng-template><ng-template ngl-tab></ng-template>
       </ngl-tabs>`);
     const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(li).not.toHaveCssClass('slds-text-title--caps'));
+    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeFalsy());
 
     fixture.componentInstance.titleCaps = 'true';
     fixture.detectChanges();
-    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
+    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeTruthy());
   });
 
   it('should render tab headers based on template', () => {
@@ -113,7 +113,7 @@ describe('Tabs Component', () => {
 
   it('should call activate/deactivate methods accordingly', () => {
     const fixture = createTestComponent();
-    const { componentInstance } = fixture;
+    const {componentInstance} = fixture;
 
     expect(componentInstance.activate).not.toHaveBeenCalled();
     componentInstance.selectedTab = 'three';
@@ -154,13 +154,13 @@ describe('Tabs Component', () => {
       <ng-template ngl-tab heading="First">Tab 1</ng-template>
       <ng-template ngl-tab nglTabId="two" heading="Second">Tab 2</ng-template>
       <ng-template ngl-tab nglTabId="three" heading="Third tab" (onActivate)="activate(true)"
-            (onDeactivate)="activate(false)">Tab 3</ng-template>
+                   (onDeactivate)="activate(false)">Tab 3</ng-template>
       <ngl-tab (onActivate)="activate(4, true)" (onDeactivate)="activate(4, false)">
         <ng-template ngl-tab-heading>Fourth tab</ng-template>
         <ng-template ngl-tab-content>Tab 4</ng-template>
       </ngl-tab>
     </ngl-tabs>
-  `,
+  `
 })
 export class TestComponent {
   selectedTab: string | number = 'two';

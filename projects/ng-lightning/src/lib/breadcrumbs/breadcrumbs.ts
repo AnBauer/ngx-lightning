@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, Input, ContentChildren, QueryList} from '@angular/core';
-import {NglBreadcrumbDirective} from './breadcrumb';
+import { ChangeDetectionStrategy, Component, ContentChildren, Input, QueryList } from '@angular/core';
+import { NglBreadcrumbDirective } from './breadcrumb';
 
 @Component({
  selector: 'ngl-breadcrumbs',

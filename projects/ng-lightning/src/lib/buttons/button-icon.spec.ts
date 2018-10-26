@@ -1,8 +1,8 @@
-import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent} from '../../test/util/helpers';
-import {NglButtonsModule} from './module';
-import {NglIconsModule} from '../icons/module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { NglButtonsModule } from './module';
+import { NglIconsModule } from '../icons/module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -21,51 +21,51 @@ describe('`nglButtonIcon`', () => {
     const button = getButtonElement(nativeElement);
 
     fixture.detectChanges();
-    expect(button).toHaveCssClass('slds-button');
-    expect(button).toHaveCssClass('slds-button--icon-border');
+    expect(hasCssClass(button, 'slds-button')).toBeTruthy();
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeTruthy();
 
     componentInstance.style = '';
     fixture.detectChanges();
-    expect(button).not.toHaveCssClass('slds-button--icon');
-    expect(button).toHaveCssClass('slds-button--icon-border');
+    expect(hasCssClass(button, 'slds-button--icon')).toBeFalsy();
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeTruthy();
 
     componentInstance.style = 'container';
     fixture.detectChanges();
-    expect(button).toHaveCssClass('slds-button--icon-container');
-    expect(button).not.toHaveCssClass('slds-button--icon');
+    expect(hasCssClass(button, 'slds-button--icon-container')).toBeTruthy();
+    expect(hasCssClass(button, 'slds-button--icon')).toBeFalsy();
 
     componentInstance.style = null;
     fixture.detectChanges();
-    expect(button).toHaveCssClass('slds-button--icon-border');
-    expect(button).not.toHaveCssClass('slds-button--icon-container');
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeTruthy();
+    expect(hasCssClass(button, 'slds-button--icon-container')).toBeFalsy();
   });
 
   it('should render the appropriate icon', () => {
     const fixture = createTestComponent();
     const button = getButtonElement(fixture.nativeElement);
     const icon = button.querySelector('svg');
-    expect(icon).toHaveCssClass('slds-button__icon');
+    expect(hasCssClass(icon, 'slds-button__icon')).toBeTruthy();
   });
 
   it('should render the default button icon when attribute value is empty', () => {
     const fixture = createTestComponent(`<button nglButtonIcon=""></button>`);
     const button = getButtonElement(fixture.nativeElement);
-    expect(button).toHaveCssClass('slds-button--icon-border');
-    expect(button).not.toHaveCssClass('slds-button--icon');
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeTruthy();
+    expect(hasCssClass(button, 'slds-button--icon')).toBeFalsy();
   });
 
   it('should render the default button icon when attribute value is not set', () => {
     const fixture = createTestComponent(`<button nglButtonIcon></button>`);
     const button = getButtonElement(fixture.nativeElement);
-    expect(button).not.toHaveCssClass('slds-button--icon');
-    expect(button).toHaveCssClass('slds-button--icon-border');
+    expect(hasCssClass(button, 'slds-button--icon')).toBeFalsy();
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeTruthy();
   });
 
   it(`should render the bare button for ''`, () => {
     const fixture = createTestComponent(`<button nglButtonIcon="''"></button>`);
     const button = getButtonElement(fixture.nativeElement);
-    expect(button).toHaveCssClass('slds-button--icon');
-    expect(button).not.toHaveCssClass('slds-button--icon-border');
+    expect(hasCssClass(button, 'slds-button--icon')).toBeTruthy();
+    expect(hasCssClass(button, 'slds-button--icon-border')).toBeFalsy();
   });
 });
 

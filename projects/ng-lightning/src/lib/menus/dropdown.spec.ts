@@ -1,9 +1,9 @@
-import {TestBed, ComponentFixture, async}  from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {NglDropdownDirective} from './dropdown';
-import {createGenericTestComponent, dispatchKeyEvent} from '../../test/util/helpers';
-import {By} from '@angular/platform-browser';
-import {NglMenusModule} from './module';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { NglDropdownDirective } from './dropdown';
+import { createGenericTestComponent, dispatchKeyEvent, hasCssClass } from '../../test/util/helpers';
+import { By } from '@angular/platform-browser';
+import { NglMenusModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -31,15 +31,15 @@ describe('`nglDropdown`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const dropdownEl = getDropdownElement(fixture.nativeElement);
-    expect(dropdownEl).toHaveCssClass('slds-dropdown-trigger');
-    expect(dropdownEl).toHaveCssClass('slds-dropdown-trigger--click');
+    expect(hasCssClass(dropdownEl, 'slds-dropdown-trigger')).toBeTruthy();
+    expect(hasCssClass(dropdownEl, 'slds-dropdown-trigger--click')).toBeTruthy();
     fixture.destroy();
   });
 
   it('should be closed when initialized as closed', () => {
     const fixture = createTestComponent();
     const dropdownEl = getDropdownElement(fixture.nativeElement);
-    expect(dropdownEl).not.toHaveCssClass('slds-is-open');
+    expect(hasCssClass(dropdownEl, 'slds-is-open')).toBeFalsy();
     expect(dropdownEl.getAttribute('aria-expanded')).toBe('false');
     fixture.destroy();
   });
@@ -50,7 +50,7 @@ describe('`nglDropdown`', () => {
     fixture.detectChanges();
 
     const dropdownEl = getDropdownElement(fixture.nativeElement);
-    expect(dropdownEl).toHaveCssClass('slds-is-open');
+    expect(hasCssClass(dropdownEl, 'slds-is-open')).toBeTruthy();
     expect(dropdownEl.getAttribute('aria-expanded')).toBe('true');
     fixture.destroy();
   });

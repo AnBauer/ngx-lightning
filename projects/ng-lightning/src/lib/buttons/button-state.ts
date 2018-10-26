@@ -1,4 +1,4 @@
-import { Directive, Input, Output, EventEmitter, HostListener, ElementRef, Renderer2, HostBinding } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output, Renderer2 } from '@angular/core';
 import { toBoolean } from '../util/util';
 
 @Directive({

@@ -1,4 +1,4 @@
-import {Component, Input, ChangeDetectionStrategy, ElementRef, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'figure[nglFigure]',

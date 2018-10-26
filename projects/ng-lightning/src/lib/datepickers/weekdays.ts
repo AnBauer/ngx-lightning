@@ -1,4 +1,4 @@
-import {Component, Input, ChangeDetectionStrategy, OnChanges} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'tr[nglWeekdays]',

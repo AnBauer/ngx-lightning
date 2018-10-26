@@ -1,4 +1,4 @@
-import {Direction} from './popover';
+import { Direction } from './popover';
 
 const attachments = <{[key: string]: any}>{
   top   : { attachment: 'bottom center', offset: '10px 0', opposite: 'bottom' },

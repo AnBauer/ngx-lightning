@@ -1,9 +1,9 @@
-import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {Component} from '@angular/core';
-import {createGenericTestComponent, dispatchKeyEvent} from '../../test/util/helpers';
-import {By} from '@angular/platform-browser';
-import {NglModal} from './modal';
-import {NglModalsModule} from './module';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { createGenericTestComponent, dispatchKeyEvent, hasCssClass } from '../../test/util/helpers';
+import { By } from '@angular/platform-browser';
+import { NglModal } from './modal';
+import { NglModalsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -36,7 +36,7 @@ describe('`NglModal`', () => {
   it('should render correctly if open', () => {
     const fixture = createTestComponent();
     const modal = getModal(fixture.nativeElement);
-    expect(modal).toHaveCssClass('slds-fade-in-open');
+    expect(hasCssClass(modal, 'slds-fade-in-open')).toBeTruthy();
     expect(modal.getAttribute('aria-hidden')).toBe('false');
 
     const header = getHeader(modal);
@@ -47,7 +47,7 @@ describe('`NglModal`', () => {
     expect(content).toHaveText('Body content.');
 
     const backdrop = getBackdrop(fixture.nativeElement);
-    expect(backdrop).toHaveCssClass('slds-backdrop--open');
+    expect(hasCssClass(backdrop, 'slds-backdrop--open')).toBeTruthy();
   });
 
   it('should render correctly if closed', () => {
@@ -56,22 +56,22 @@ describe('`NglModal`', () => {
     fixture.detectChanges();
 
     const modal = getModal(fixture.nativeElement);
-    expect(modal).not.toHaveCssClass('slds-fade-in-open');
+    expect(hasCssClass(modal, 'slds-fade-in-open')).toBeFalsy();
     expect(modal.getAttribute('aria-hidden')).toBe('true');
 
     const backdrop = getBackdrop(fixture.nativeElement);
-    expect(backdrop).not.toHaveCssClass('slds-backdrop--open');
+    expect(hasCssClass(backdrop, 'slds-backdrop--open')).toBeFalsy();
   });
 
   it('should render correctly without header', () => {
     const fixture = createTestComponent();
     const headerEl = fixture.nativeElement.querySelector('.slds-modal__header');
-    expect(headerEl).not.toHaveCssClass('slds-modal__header--empty');
+    expect(hasCssClass(headerEl, 'slds-modal__header--empty')).toBeFalsy();
     expect(getHeader(fixture.nativeElement)).toBeTruthy();
 
     fixture.componentInstance.header = null;
     fixture.detectChanges();
-    expect(headerEl).toHaveCssClass('slds-modal__header--empty');
+    expect(hasCssClass(headerEl, 'slds-modal__header--empty')).toBeTruthy();
     expect(getHeader(fixture.nativeElement)).toBeFalsy();
   });
 
@@ -111,7 +111,7 @@ describe('`NglModal`', () => {
       </ngl-modal>`);
     const footer = fixture.nativeElement.querySelector('.slds-modal__footer');
     expect(footer).toHaveText('Modal Header in footer');
-    expect(footer).not.toHaveCssClass('slds-modal__footer--directional');
+    expect(hasCssClass(footer, 'slds-modal__footer--directional')).toBeFalsy();
 
     fixture.componentInstance.header = 'Changed header';
     fixture.detectChanges();
@@ -127,11 +127,11 @@ describe('`NglModal`', () => {
     fixture.detectChanges();
 
     const footer = getFooter(fixture.nativeElement);
-    expect(footer).toHaveCssClass('slds-modal__footer--directional');
+    expect(hasCssClass(footer, 'slds-modal__footer--directional')).toBeTruthy();
 
     fixture.componentInstance.directional = false;
     fixture.detectChanges();
-    expect(footer).not.toHaveCssClass('slds-modal__footer--directional');
+    expect(hasCssClass(footer, 'slds-modal__footer--directional')).toBeFalsy();
   });
 });
 

@@ -1,13 +1,13 @@
 import {
+  ContentChildren,
   Directive,
-  Input,
-  Output,
+  ElementRef,
   EventEmitter,
   HostListener,
-  ElementRef,
-  OnInit,
+  Input,
   OnDestroy,
-  ContentChildren,
+  OnInit,
+  Output,
   QueryList,
   Renderer2
 } from '@angular/core';
