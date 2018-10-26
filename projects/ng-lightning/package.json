@@ -1,0 +1,11 @@
+{
+  "name": "ng-lightning",
+  "version": "7.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  },
+  "scripts": {
+    "build_lib": "ng build --prod ng-lightning"
+  }
+}
