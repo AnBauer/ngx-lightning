@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { createGenericTestComponent } from '../../../test/util/helpers';
 import { NglFormsModule } from '../module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -25,7 +25,7 @@ describe('`NglFormGroup`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
-    expect(hasCssClass(element, 'slds-form-element')).toBeTruthy();
+    expect(element).toHaveCssClass('slds-form-element');
 
     const labelEl = getLabelElement(element);
     expect(labelEl).toHaveText('Group Label');
@@ -44,13 +44,13 @@ describe('`NglFormGroup`', () => {
     const fixture = createTestComponent(`<fieldset ngl-form-group [error]="error"></fieldset>`);
     const element = fixture.nativeElement.firstElementChild;
 
-    expect(hasCssClass(element, 'slds-has-error')).toBeFalsy();
+    expect(element).not.toHaveCssClass('slds-has-error');
     expect(getErrorElement(element)).toBeFalsy();
     fixture.componentInstance.error = 'This is an error!';
     fixture.detectChanges();
 
     const errorEl = getErrorElement(element);
-    expect(hasCssClass(element, 'slds-has-error')).toBeTruthy();
+    expect(element).toHaveCssClass('slds-has-error');
     expect(errorEl).toHaveText('This is an error!');
   });
 
@@ -61,7 +61,7 @@ describe('`NglFormGroup`', () => {
     fixture.componentInstance.required = true;
     fixture.detectChanges();
     const abbrEl = getRequiredElement(fixture.nativeElement);
-    expect(hasCssClass(abbrEl, 'slds-required')).toBeTruthy();
+    expect(abbrEl).toHaveCssClass('slds-required');
 
     fixture.componentInstance.required = false;
     fixture.detectChanges();

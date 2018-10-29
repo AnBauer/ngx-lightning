@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglIconsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -17,8 +17,8 @@ describe('`ngl-icon-waffle`', () => {
     const fixture = createTestComponent();
     const host = fixture.nativeElement.firstElementChild;
 
-    expect(hasCssClass(host, 'slds-icon-waffle_container')).toBeTruthy();
-    expect(hasCssClass(host.firstElementChild, 'slds-icon-waffle')).toBeTruthy();
+    expect(host).toHaveCssClass('slds-icon-waffle_container');
+    expect(host.firstElementChild).toHaveCssClass('slds-icon-waffle');
   });
 });
 

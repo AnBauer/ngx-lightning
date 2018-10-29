@@ -14,7 +14,7 @@ export class NglButtonStateDirective {
     this.toggleClass('slds-not-selected', !this._selected);
   }
 
-  @HostBinding('attr.aria-live') ariaLive = 'button';
+  @HostBinding('attr.aria-live') ariaLive = 'assertive';
   @Output() nglButtonStateChange = new EventEmitter<boolean>();
 
   get selected() {

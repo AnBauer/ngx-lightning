@@ -1,6 +1,6 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglNotificationsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -24,18 +24,18 @@ describe('`nglNotification`', () => {
     fixture.componentInstance.severity = 'error';
     fixture.detectChanges();
 
-    expect(hasCssClass(notificationElement, 'slds-notify--toast')).toBeTruthy();
-    expect(hasCssClass(notificationElement, 'slds-theme--error')).toBeTruthy();
+    expect(notificationElement).toHaveCssClass('slds-notify--toast');
+    expect(notificationElement).toHaveCssClass('slds-theme--error');
 
     fixture.componentInstance.type = 'alert';
     fixture.componentInstance.severity = null;
     fixture.detectChanges();
 
-    expect(hasCssClass(notificationElement, 'slds-notify--alert')).toBeTruthy();
-    expect(hasCssClass(notificationElement, 'slds-theme--error')).toBeFalsy();
+    expect(notificationElement).toHaveCssClass('slds-notify--alert');
+    expect(notificationElement).not.toHaveCssClass('slds-theme--error');
 
     const closeButton = getCloseButton(fixture);
-    expect(hasCssClass(closeButton, 'slds-notify__close')).toBeTruthy();
+    expect(closeButton).toHaveCssClass('slds-notify__close');
   });
 
   it('should have the proper assistive texts', () => {

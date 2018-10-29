@@ -1,9 +1,8 @@
 /**
  * Testing helpers
  */
-import {TestBed, ComponentFixture} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NGL_CONFIG, NglConfig } from '../../lib/config/config';
-import { element } from 'protractor';
 
 // Default configuration for every TestComponent
 beforeEach(() => {
@@ -23,8 +22,8 @@ export function dispatchKeyEvent(fixture: ComponentFixture<any>, predicate: any,
   _debugElement.triggerEventHandler(key, event);
 }
 
-export function selectElements(element: HTMLElement, selector: string): HTMLElement[] {
-  return [].slice.call(element.querySelectorAll(selector));
+export function selectElements(htmlElement: HTMLElement, selector: string): HTMLElement[] {
+  return [].slice.call(htmlElement.querySelectorAll(selector));
 }
 
 /**
@@ -46,8 +45,4 @@ export function createGenericTestComponent<T>(type: {new (...args: any[]): T}, h
     fixture.detectChanges();
   }
   return fixture as ComponentFixture<T>;
-}
-
-export function hasCssClass(el: HTMLElement | SVGElement | Element, cssClass: string): boolean {
-  return (el.getAttribute('class') || '').split(' ').includes(cssClass);
 }

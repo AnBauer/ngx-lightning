@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglImagesModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -13,19 +13,19 @@ describe('Figure Crop', () => {
   it('should set ratio based on input', () => {
     const fixture = createTestComponent();
     const el = fixture.nativeElement.firstElementChild;
-    expect(hasCssClass(el, 'slds-image__crop')).toBeTruthy();
-    expect(hasCssClass(el, 'slds-image__crop--4-by-3')).toBeTruthy();
+    expect(el).toHaveCssClass('slds-image__crop');
+    expect(el).toHaveCssClass('slds-image__crop--4-by-3');
 
     fixture.componentInstance.ratio = null;
     fixture.detectChanges();
-    expect(hasCssClass(el, 'slds-image__crop')).toBeFalsy();
-    expect(hasCssClass(el, 'slds-image__crop--4-by-3')).toBeFalsy();
+    expect(el).not.toHaveCssClass('slds-image__crop');
+    expect(el).not.toHaveCssClass('slds-image__crop--4-by-3');
 
     fixture.componentInstance.ratio = '16-by-9';
     fixture.detectChanges();
-    expect(hasCssClass(el, 'slds-image__crop')).toBeTruthy();
-    expect(hasCssClass(el, 'slds-image__crop--16-by-9')).toBeTruthy();
-    expect(hasCssClass(el, 'slds-image__crop--4-by-3')).toBeFalsy();
+    expect(el).toHaveCssClass('slds-image__crop');
+    expect(el).toHaveCssClass('slds-image__crop--16-by-9');
+    expect(el).not.toHaveCssClass('slds-image__crop--4-by-3');
   });
 });
 

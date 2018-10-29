@@ -15,8 +15,8 @@ const NGL_PILL_DIRECTIVES = [
 ];
 
 @NgModule({
-  declarations: [NGL_PILL_DIRECTIVES],
-  exports: [NGL_PILL_DIRECTIVES],
+  declarations: NGL_PILL_DIRECTIVES,
+  exports: NGL_PILL_DIRECTIVES,
   imports: [CommonModule, NglIconsModule],
 })
 export class NglPillsModule {}

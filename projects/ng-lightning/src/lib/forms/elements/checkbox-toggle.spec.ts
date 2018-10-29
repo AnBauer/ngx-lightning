@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../../test/util/helpers';
+import { createGenericTestComponent } from '../../../test/util/helpers';
 import { NglFormsModule } from '../module';
 import { getErrorElement, getRequiredElement } from './input.spec';
 
@@ -30,7 +30,7 @@ describe('`NglFormCheckboxToggle`', () => {
   it('should render correctly', () => {
     const fixture = createTestComponent();
     const element = fixture.nativeElement.firstElementChild;
-    expect(hasCssClass(element, 'slds-form-element')).toBeTruthy();
+    expect(element).toHaveCssClass('slds-form-element');
 
     const labelEl = getLabelElement(fixture.nativeElement);
     expect(labelEl).toHaveText('My label');
@@ -51,7 +51,7 @@ describe('`NglFormCheckboxToggle`', () => {
     fixture.componentInstance.required = true;
     fixture.detectChanges();
     const abbrEl = getRequiredElement(fixture.nativeElement);
-    expect(hasCssClass(abbrEl, 'slds-required')).toBeTruthy();
+    expect(abbrEl).toHaveCssClass('slds-required');
 
     fixture.componentInstance.required = false;
     fixture.detectChanges();

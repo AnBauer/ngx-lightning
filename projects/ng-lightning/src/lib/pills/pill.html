@@ -1,1 +1,6 @@
-<ng-content select="[nglPillImage]"></ng-content><ng-content select="a"></ng-content><span class="slds-pill__label" *ngIf="unlinked"><ng-content></ng-content></span><button class="slds-button slds-button--icon slds-pill__remove" *ngIf="removable" type="button" (click)="remove()"><svg class="slds-button__icon" nglIcon="close"></svg></button>
+<ng-content select="[nglPillImage]"></ng-content>
+<ng-content select="a"></ng-content>
+<span class="slds-pill__label" *ngIf="unlinked"><ng-content></ng-content></span>
+<button class="slds-button slds-button--icon slds-pill__remove" *ngIf="removable" type="button" (click)="remove()">
+  <svg class="slds-button__icon" nglIcon="close"></svg>
+</button>

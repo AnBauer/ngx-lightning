@@ -18,15 +18,15 @@ import { NglConfig, NglConfigurable } from '../config/config';
 import { toBoolean } from '../util/util';
 
 @Component({
-  selector: 'ngl-rating',
+  selector       : 'ngl-rating',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './rating.html',
-  host: {
-    'style': 'white-space: nowrap;',
-    'tabindex': '0',
-    'aria-valuemin': '0',
-    '[attr.aria-valuemax]': 'max',
-  },
+  templateUrl    : './rating.html',
+  host           : {
+    'style'               : 'white-space: nowrap;',
+    'tabindex'            : '0',
+    'aria-valuemin'       : '0',
+    '[attr.aria-valuemax]': 'max'
+  }
 })
 @NglConfigurable()
 export class NglRatingComponent implements OnInit, AfterContentInit {
@@ -36,9 +36,11 @@ export class NglRatingComponent implements OnInit, AfterContentInit {
 
   @Input() icon = 'favorite';
   @Input() size: 'x-small' | 'small' | 'large';
+
   @Input() set isReadonly(readonly: any) {
     this.readonly = toBoolean(readonly);
   }
+
   @Input() set rate(rate: number) {
     this.inputRate = rate;
     this.currentRate = rate;
@@ -51,6 +53,7 @@ export class NglRatingComponent implements OnInit, AfterContentInit {
     this._max = +max;
     this.setRange();
   }
+
   get max() {
     return this._max;
   }
@@ -84,12 +87,16 @@ export class NglRatingComponent implements OnInit, AfterContentInit {
   }
 
   update(value: number) {
-    if (value < 1 || value > this.max || this.readonly || value === this.inputRate) { return; }
+    if (value < 1 || value > this.max || this.readonly || value === this.inputRate) {
+      return;
+    }
     this.rateChange.emit(value);
   }
 
   enter(value: number) {
-    if (this.readonly) { return; }
+    if (this.readonly) {
+      return;
+    }
 
     this.currentRate = value;
     this.hover.emit(value);

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglBreadcrumbsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -25,7 +25,7 @@ describe('Breadcrumbs Component', () => {
 
     anchors.map(el => el.parentElement).forEach(parentEl => {
       expect(parentEl.tagName).toBe('LI');
-      expect(hasCssClass(parentEl, 'slds-breadcrumb__item')).toBeTruthy();
+      expect(parentEl).toHaveCssClass('slds-breadcrumb__item');
       expect(parentEl.parentElement.tagName).toBe('OL');
     });
   });

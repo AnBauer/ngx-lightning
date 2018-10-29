@@ -1,1 +1,7 @@
-<header class="slds-popover__header" *ngIf="header"><h2 class="slds-text-heading--small" [id]="uid + '-heading'">{{header}}</h2></header><div class="slds-popover__body" [id]="uid"><ng-content></ng-content></div><footer class="slds-popover__footer" *ngIf="footer">{{footer}}</footer>
+<header class="slds-popover__header" *ngIf="header">
+  <h2 class="slds-text-heading--small" [id]="uid + '-heading'">{{header}}</h2>
+</header>
+<div class="slds-popover__body" [id]="uid">
+  <ng-content></ng-content>
+</div>
+<footer class="slds-popover__footer" *ngIf="footer">{{footer}}</footer>

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, dispatchKeyEvent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { createGenericTestComponent, dispatchKeyEvent, selectElements } from '../../test/util/helpers';
 import { NglTabsModule } from './module';
 import { By } from '@angular/platform-browser';
 
@@ -34,7 +34,7 @@ describe('Tabs Component', () => {
     const tabs = getTabsElement(fixture.nativeElement);
     expect(tabs).toBeDefined();
     expect(tabs.tagName).toBe('UL');
-    expect(hasCssClass(tabs, 'slds-tabs--default__nav')).toBeTruthy();
+    expect(tabs).toHaveCssClass('slds-tabs--default__nav');
   });
 
   it('should render the tab headers', () => {
@@ -45,7 +45,7 @@ describe('Tabs Component', () => {
   it('should render titles with caps', () => {
     const fixture = createTestComponent();
     const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeTruthy());
+    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
   });
 
   it('should render titles with caps based on input', () => {
@@ -54,11 +54,11 @@ describe('Tabs Component', () => {
         <ng-template ngl-tab></ng-template><ng-template ngl-tab></ng-template>
       </ngl-tabs>`);
     const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeFalsy());
+    lis.forEach((li) => expect(li).not.toHaveCssClass('slds-text-title--caps'));
 
     fixture.componentInstance.titleCaps = 'true';
     fixture.detectChanges();
-    lis.forEach((li) => expect(hasCssClass(li, 'slds-text-title--caps')).toBeTruthy());
+    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
   });
 
   it('should render tab headers based on template', () => {

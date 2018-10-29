@@ -1,1 +1,12 @@
-<ng-template #t="#t" let-fill="fill"><svg class="slds-icon" [nglIcon]="icon" [ngClass]="size ? 'slds-icon--' + size : ''" [style.fill]="fill === 100 ? colorOn : colorOff"></svg><svg class="slds-icon" *ngIf="fill &gt; 0 &amp;&amp; fill &lt; 100" [nglIcon]="icon" [ngClass]="size ? 'slds-icon--' + size : ''" [style.fill]="colorOn" style="position:absolute; bottom:0;" [style.left.%]="fill - 100" [xPos]="(100 - fill) + '%'"></svg></ng-template><div class="slds-show--inline-block" *ngFor="let r of range; let i = index" (click)="update(r)" (mouseenter)="enter(r)" style="position: relative;"><ng-template [ngTemplateOutlet]="_template" [ngTemplateOutletContext]="{$implicit: r &lt;= currentRate, index: i, fill: getFill(r)}"></ng-template></div>
+<ng-template #t let-fill="fill">
+  <svg class="slds-icon" [nglIcon]="icon" [ngClass]="size ? 'slds-icon--' + size : ''"
+       [style.fill]="fill === 100 ? colorOn : colorOff"></svg>
+  <svg class="slds-icon" *ngIf="fill &gt; 0 &amp;&amp; fill &lt; 100" [nglIcon]="icon"
+       [ngClass]="size ? 'slds-icon--' + size : ''" [style.fill]="colorOn" style="position:absolute; bottom:0;"
+       [style.left.%]="fill - 100" [xPos]="(100 - fill) + '%'"></svg>
+</ng-template>
+<div class="slds-show--inline-block" *ngFor="let r of range; let i = index" (click)="update(r)" (mouseenter)="enter(r)"
+     style="position: relative;">
+  <ng-template [ngTemplateOutlet]="_template"
+               [ngTemplateOutletContext]="{$implicit: r &lt;= currentRate, index: i, fill: getFill(r)}"></ng-template>
+</div>

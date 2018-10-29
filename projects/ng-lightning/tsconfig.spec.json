@@ -8,6 +8,7 @@
     ]
   },
   "files": [
+    "src/test/mock/tether.ts",
     "src/test.ts"
   ],
   "include": [

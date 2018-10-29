@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglIconsModule } from './module';
 import { NglConfig } from '../config/config';
 
@@ -31,11 +31,11 @@ describe('Icon Component', () => {
     const { host, icon, assistiveText } = getElements(nativeElement);
     const use = icon.querySelector('use');
 
-    expect(hasCssClass(host, 'slds-icon_container')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-icon-text-error')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-warning')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(host).not.toHaveCssClass('slds-icon_container');
+    expect(icon).toHaveCssClass('slds-icon');
+    expect(icon).not.toHaveCssClass('slds-icon-text-error');
+    expect(icon).not.toHaveCssClass('slds-icon-text-warning');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
     expect(use.getAttribute('xlink:href')).toBe('/mypath/utility-sprite/svg/symbols.svg#warning');
     expect(assistiveText).toEqual('Help!');
   });
@@ -47,61 +47,61 @@ describe('Icon Component', () => {
 
     componentInstance.type = 'default';
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-icon-text-error')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-warning')).toBeFalsy();
+    expect(icon).toHaveCssClass('slds-icon-text-default');
+    expect(icon).not.toHaveCssClass('slds-icon-text-error');
+    expect(icon).not.toHaveCssClass('slds-icon-text-warning');
 
     componentInstance.type = 'warning';
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'slds-icon-text-warning')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-icon-text-error')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(icon).toHaveCssClass('slds-icon-text-warning');
+    expect(icon).not.toHaveCssClass('slds-icon-text-error');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
 
     componentInstance.type = 'error';
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'slds-icon-text-error')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-icon-text-warning')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(icon).toHaveCssClass('slds-icon-text-error');
+    expect(icon).not.toHaveCssClass('slds-icon-text-warning');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
 
     componentInstance.type = 'false';
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'slds-icon-text-error')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-warning')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(icon).not.toHaveCssClass('slds-icon-text-error');
+    expect(icon).not.toHaveCssClass('slds-icon-text-warning');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
   });
 
   it('should set size based on input', () => {
     const fixture = createTestComponent(`<ngl-icon icon="warning" [size]="size"></ngl-icon>`);
     const { nativeElement, componentInstance } = fixture;
     const { icon } = getElements(nativeElement);
-    expect(hasCssClass(icon, 'slds-icon--small')).toBeTruthy();
+    expect(icon).toHaveCssClass('slds-icon--small');
 
     componentInstance.size = 'large';
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'slds-icon--small')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon--large')).toBeTruthy();
+    expect(icon).not.toHaveCssClass('slds-icon--small');
+    expect(icon).toHaveCssClass('slds-icon--large');
   });
 
   it('should allow extra svg classes', () => {
     const fixture = createTestComponent(`<ngl-icon [svgClass]="svgClass"></ngl-icon>`);
     const { nativeElement, componentInstance } = fixture;
     const { icon } = getElements(nativeElement);
-    expect(hasCssClass(icon, 'anextra')).toBeTruthy();
-    expect(hasCssClass(icon, 'fancy')).toBeTruthy();
-    expect(hasCssClass(icon, 'one')).toBeTruthy();
+    expect(icon).toHaveCssClass('anextra');
+    expect(icon).toHaveCssClass('fancy');
+    expect(icon).toHaveCssClass('one');
 
     componentInstance.svgClass = ['another', 'one'];
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'anextra')).toBeFalsy();
-    expect(hasCssClass(icon, 'fancy')).toBeFalsy();
-    expect(hasCssClass(icon, 'one')).toBeTruthy();
-    expect(hasCssClass(icon, 'another')).toBeTruthy();
+    expect(icon).not.toHaveCssClass('anextra');
+    expect(icon).not.toHaveCssClass('fancy');
+    expect(icon).toHaveCssClass('one');
+    expect(icon).toHaveCssClass('another');
 
     componentInstance.svgClass = null;
     fixture.detectChanges();
-    expect(hasCssClass(icon, 'one')).toBeFalsy();
-    expect(hasCssClass(icon, 'another')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon')).toBeTruthy();
+    expect(icon).not.toHaveCssClass('one');
+    expect(icon).not.toHaveCssClass('another');
+    expect(icon).toHaveCssClass('slds-icon');
   });
 
   it('should support sprite category', () => {
@@ -114,16 +114,16 @@ describe('Icon Component', () => {
     const { host, icon } = getElements(nativeElement);
     const use = icon.querySelector('use');
 
-    expect(hasCssClass(host, 'slds-icon_container')).toBeTruthy();
-    expect(hasCssClass(host, 'slds-icon-standard-add')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(host).toHaveCssClass('slds-icon_container');
+    expect(host).toHaveCssClass('slds-icon-standard-add');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
     expect(use.getAttribute('xlink:href')).toBe('/mypath/standard-sprite/svg/symbols.svg#add');
 
     componentInstance.type = 'utility';
     fixture.detectChanges();
-    expect(hasCssClass(host, 'slds-icon_container')).toBeFalsy();
-    expect(hasCssClass(host, 'slds-icon-standard-add')).toBeFalsy();
-    expect(hasCssClass(icon, 'slds-icon-text-default')).toBeFalsy();
+    expect(host).not.toHaveCssClass('slds-icon_container');
+    expect(host).not.toHaveCssClass('slds-icon-standard-add');
+    expect(icon).not.toHaveCssClass('slds-icon-text-default');
     expect(use.getAttribute('xlink:href')).toBe('/mypath/utility-sprite/svg/symbols.svg#add');
   });
 
@@ -138,7 +138,7 @@ describe('Icon Component', () => {
     const { host, icon } = getElements(nativeElement);
     const use = icon.querySelector('use');
 
-    expect(hasCssClass(host, 'slds-icon-standard-work-order')).toBeTruthy();
+    expect(host).toHaveCssClass('slds-icon-standard-work-order');
     expect(use.getAttribute('xlink:href')).toBe('/mypath/standard-sprite/svg/symbols.svg#work_order');
   });
 
@@ -146,7 +146,7 @@ describe('Icon Component', () => {
     const fixture = createTestComponent(`<ngl-icon category="custom" icon="1"></ngl-icon>`);
     const { host, icon } = getElements(fixture.nativeElement);
     const use = icon.querySelector('use');
-    expect(hasCssClass(host, 'slds-icon-custom-custom1')).toBeTruthy();
+    expect(host).toHaveCssClass('slds-icon-custom-custom1');
     expect(use.getAttribute('xlink:href')).toBe('/mypath/custom-sprite/svg/symbols.svg#custom1');
   });
 });

@@ -18,28 +18,28 @@ describe('`NglInternalOutlet`', () => {
     const fixture = createTestComponent(null, false);
     fixture.componentInstance.isTemplate = false;
     fixture.detectChanges();
-    expect(getElement(fixture).innerHTML).toContain('String content');
+    expect(getElement(fixture)).toHaveText('String content');
   });
 
   it('should render template', () => {
     const fixture = createTestComponent();
-    expect(getElement(fixture).innerHTML).toContain('Template content. Count is 10');
+    expect(getElement(fixture)).toHaveText('Template content. Count is 10');
   });
 
   it('could switch between string and template', () => {
     const fixture = createTestComponent();
-    expect(getElement(fixture).innerHTML).not.toContain('String content');
+    expect(getElement(fixture)).not.toHaveText('String content');
 
     fixture.componentInstance.isTemplate = false;
     fixture.detectChanges();
-    expect(getElement(fixture).innerHTML).toContain('String content');
+    expect(getElement(fixture)).toHaveText('String content');
   });
 
   it('should be able to update variables in template', () => {
     const fixture = createTestComponent();
     fixture.componentInstance.count = 15;
     fixture.detectChanges();
-    expect(getElement(fixture).innerHTML).toContain('Template content. Count is 15');
+    expect(getElement(fixture)).toHaveText('Template content. Count is 15');
   });
 });
 

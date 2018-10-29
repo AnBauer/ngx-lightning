@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { createGenericTestComponent, selectElements } from '../../test/util/helpers';
 import { NglButtonsModule } from './module';
 import { NglIconsModule } from '../icons/module';
 
@@ -23,10 +23,10 @@ describe('`nglButtonState`', () => {
     const icons = selectElements(button, 'svg');
     expect(icons.length).toBe(3);
     icons.forEach((icon) => {
-      expect(hasCssClass(icon, 'slds-button__icon--stateful')).toBeTruthy();
-      expect(hasCssClass(icon, 'slds-icon')).toBeFalsy();
-      expect(hasCssClass(icon, 'slds-button__icon')).toBeFalsy();
-      expect(hasCssClass(icon, 'slds-button__icon--left')).toBeTruthy();
+      expect(icon).toHaveCssClass('slds-button__icon--stateful');
+      expect(icon).not.toHaveCssClass('slds-icon');
+      expect(icon).not.toHaveCssClass('slds-button__icon');
+      expect(icon).toHaveCssClass('slds-button__icon--left');
     });
   });
 
@@ -34,17 +34,17 @@ describe('`nglButtonState`', () => {
     const fixture = createTestComponent();
     const { componentInstance } = fixture;
     const button = getButtonElement(fixture.nativeElement);
-    expect(hasCssClass(button, 'slds-not-selected')).toBeTruthy();
+    expect(button).toHaveCssClass('slds-not-selected');
 
     componentInstance.selected = true;
     fixture.detectChanges();
-    expect(hasCssClass(button, 'slds-not-selected')).toBeFalsy();
-    expect(hasCssClass(button, 'slds-is-selected')).toBeTruthy();
+    expect(button).not.toHaveCssClass('slds-not-selected');
+    expect(button).toHaveCssClass('slds-is-selected');
 
     componentInstance.selected = false;
     fixture.detectChanges();
-    expect(hasCssClass(button, 'slds-not-selected')).toBeTruthy();
-    expect(hasCssClass(button, 'slds-is-selected')).toBeFalsy();
+    expect(button).toHaveCssClass('slds-not-selected');
+    expect(button).not.toHaveCssClass('slds-is-selected');
   });
 
   it('should emit the appopriate state on click', () => {
@@ -69,7 +69,7 @@ describe('`nglButtonState`', () => {
   `,
 })
 export class TestComponent {
-  selected: boolean = false;
+  selected = false;
 
   change($event: boolean) {
     this.selected = $event;

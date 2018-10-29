@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglButtonsModule } from './module';
 import { NglIconsModule } from '../icons/module';
 
@@ -18,15 +18,15 @@ describe('`nglButton`', () => {
   it('should render the default button', () => {
     const fixture = createTestComponent();
     const button = getButtonElement(fixture.nativeElement);
-    expect(hasCssClass(button, 'slds-button')).toBeTruthy();
+    expect(button).toHaveCssClass('slds-button');
   });
 
   it('should render icon correctly', () => {
     const fixture = createTestComponent(`<button [nglButton]="style"><ngl-icon icon="download" align="left"></ngl-icon> Download</button>`);
     const button = getButtonElement(fixture.nativeElement);
     const icon = button.querySelector('svg');
-    expect(hasCssClass(icon, 'slds-button__icon')).toBeTruthy();
-    expect(hasCssClass(icon, 'slds-button__icon--left')).toBeTruthy();
+    expect(icon).toHaveCssClass('slds-button__icon');
+    expect(icon).toHaveCssClass('slds-button__icon--left');
   });
 
   it('should render dynamic style', () => {
@@ -34,20 +34,20 @@ describe('`nglButton`', () => {
     const { componentInstance } = fixture;
 
     const button = getButtonElement(fixture.nativeElement);
-    expect(hasCssClass(button, 'slds-button')).toBeTruthy();
-    expect(hasCssClass(button, 'slds-button--brand')).toBeTruthy();
+    expect(button).toHaveCssClass('slds-button');
+    expect(button).toHaveCssClass('slds-button--brand');
 
     componentInstance.style = 'destructive';
     fixture.detectChanges();
-    expect(hasCssClass(button, 'slds-button')).toBeTruthy();
-    expect(hasCssClass(button, 'slds-button--destructive')).toBeTruthy();
-    expect(hasCssClass(button, 'slds-button--brand')).toBeFalsy();
+    expect(button).toHaveCssClass('slds-button');
+    expect(button).toHaveCssClass('slds-button--destructive');
+    expect(button).not.toHaveCssClass('slds-button--brand');
 
     componentInstance.style = null;
     fixture.detectChanges();
-    expect(hasCssClass(button, 'slds-button')).toBeTruthy();
-    expect(hasCssClass(button, 'slds-button--destructive')).toBeFalsy();
-    expect(hasCssClass(button, 'slds-button--brand')).toBeFalsy();
+    expect(button).toHaveCssClass('slds-button');
+    expect(button).not.toHaveCssClass('slds-button--destructive');
+    expect(button).not.toHaveCssClass('slds-button--brand');
   });
 });
 
@@ -56,6 +56,6 @@ describe('`nglButton`', () => {
   template: `<button [nglButton]="style">Go <</button>`,
 })
 export class TestComponent {
-  style: string = 'brand';
+  style = 'brand';
   size: string;
 }

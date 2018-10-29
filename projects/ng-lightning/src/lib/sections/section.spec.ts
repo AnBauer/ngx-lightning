@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass } from '../../test/util/helpers';
+import { createGenericTestComponent } from '../../test/util/helpers';
 import { NglSectionsModule } from './module';
 
 const createTestComponent = (html?: string) =>
@@ -24,8 +24,8 @@ describe('Section Component', () => {
     const sectionEl = getSectionEl(nativeElement);
 
     fixture.detectChanges();
-    expect(hasCssClass(sectionEl, 'slds-section')).toBeTruthy();
-    expect(hasCssClass(sectionEl, 'slds-is-open')).toBeFalsy();
+    expect(sectionEl).toHaveCssClass('slds-section');
+    expect(sectionEl).not.toHaveCssClass('slds-is-open');
     expect(getTitleEl(nativeElement).textContent.trim()).toBe('Section title');
     expect(nativeElement.querySelector('.slds-section__content').textContent).toBe('Body');
   });
@@ -37,11 +37,11 @@ describe('Section Component', () => {
 
     componentInstance.open = true;
     fixture.detectChanges();
-    expect(hasCssClass(sectionEl, 'slds-is-open')).toBeTruthy();
+    expect(sectionEl).toHaveCssClass('slds-is-open');
 
     componentInstance.open = false;
     fixture.detectChanges();
-    expect(hasCssClass(sectionEl, 'slds-is-open')).toBeFalsy();
+    expect(sectionEl).not.toHaveCssClass('slds-is-open');
   });
 
   it('should toggle when clicking on title', () => {
@@ -51,11 +51,11 @@ describe('Section Component', () => {
 
     titleEl.click();
     fixture.detectChanges();
-    expect(hasCssClass(sectionEl, 'slds-is-open')).toBeTruthy();
+    expect(sectionEl).toHaveCssClass('slds-is-open');
 
     titleEl.click();
     fixture.detectChanges();
-    expect(hasCssClass(sectionEl, 'slds-is-open')).toBeFalsy();
+    expect(sectionEl).not.toHaveCssClass('slds-is-open');
   });
 
 });

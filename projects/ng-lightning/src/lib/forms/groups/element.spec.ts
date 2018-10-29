@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, hasCssClass, selectElements } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements } from '../../../test/util/helpers';
 import { NglFormsModule } from '../module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
@@ -29,7 +29,7 @@ describe('`NglFormGroupElement`', () => {
     const inputEls = getInputElements(fixture.nativeElement);
     expect(labelEls.map(e => e.getAttribute('for'))).toEqual(inputEls.map(e => e.getAttribute('id')));
 
-    labelEls.forEach(e => expect(hasCssClass(e, 'slds-checkbox__label')).toBeTruthy());
+    labelEls.forEach(e => expect(e).toHaveCssClass('slds-checkbox__label'));
   });
 
   it('should render radio group correctly', () => {
@@ -44,7 +44,7 @@ describe('`NglFormGroupElement`', () => {
     const inputEls = getInputElements(fixture.nativeElement);
     expect(labelEls.map(e => e.getAttribute('for'))).toEqual(inputEls.map(e => e.getAttribute('id')));
 
-    labelEls.forEach(e => expect(hasCssClass(e, 'slds-radio__label')).toBeTruthy());
+    labelEls.forEach(e => expect(e).toHaveCssClass('slds-radio__label'));
 
     const names = getInputElements(fixture.nativeElement).map(e => e.getAttribute('name'));
     expect(names[0]).toMatch(/form_group_/);

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { NglRatingComponent } from './rating';
 import { NglRatingsModule } from './module';
-import { createGenericTestComponent, dispatchEvent, dispatchKeyEvent, hasCssClass, selectElements } from '../../test/util/helpers';
+import { createGenericTestComponent, dispatchEvent, dispatchKeyEvent, selectElements } from '../../test/util/helpers';
 import { By } from '@angular/platform-browser';
 import { NglConfig } from '../config/config';
 
@@ -198,20 +198,20 @@ describe('Rating Component', () => {
     fixture.detectChanges();
 
     const icons = getICons(nativeElement);
-    icons.forEach(icon => expect(hasCssClass(icon, 'slds-icon--small')).toBeTruthy());
+    icons.forEach(icon => expect(icon).toHaveCssClass('slds-icon--small'));
 
     componentInstance.size = 'large';
     fixture.detectChanges();
     icons.forEach(icon => {
-      expect(hasCssClass(icon, 'slds-icon--small')).toBeFalsy();
-      expect(hasCssClass(icon, 'slds-icon--large')).toBeTruthy();
+      expect(icon).not.toHaveCssClass('slds-icon--small');
+      expect(icon).toHaveCssClass('slds-icon--large');
     });
 
     componentInstance.size = null;
     fixture.detectChanges();
     icons.forEach(icon => {
-      expect(hasCssClass(icon, 'slds-icon--small')).toBeFalsy();
-      expect(hasCssClass(icon, 'slds-icon--large')).toBeFalsy();
+      expect(icon).not.toHaveCssClass('slds-icon--small');
+      expect(icon).not.toHaveCssClass('slds-icon--large');
     });
   });
 
