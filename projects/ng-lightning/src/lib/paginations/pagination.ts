@@ -41,7 +41,7 @@ export class NglPaginationComponent implements OnChanges {
     return this._boundaryLinks;
   }
 
-  private totalPages: number;
+  totalPages: number;
   private _boundaryLinks = false;
 
   hasPrevious() {

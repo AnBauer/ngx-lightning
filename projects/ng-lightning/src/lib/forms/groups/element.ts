@@ -34,7 +34,7 @@ export class NglFormGroupElementComponent implements OnChanges, AfterContentInit
     return `slds-${this.contentEl.type}${this.groupAlt ? '--button' : ''}__label`;
   }
 
-  constructor(@Optional() private groupAlt: NglFormGroupAlternateComponent, private element: ElementRef, private renderer: Renderer2) {
+  constructor(@Optional() public groupAlt: NglFormGroupAlternateComponent, private element: ElementRef, private renderer: Renderer2) {
   }
 
   ngOnChanges(changes?: any) {

@@ -18,7 +18,7 @@
              [attr.aria-activedescendant]="optionId(activeIndex)" [ngModel]="inputValue"
              (ngModelChange)="onInputChange($event)" (keydown.Esc)="close($event)" [placeholder]="placeholder || ''"
              (keydown.ArrowDown)="moveActive($event, 1)" (keydown.ArrowUp)="moveActive($event, -1)"
-             (keydown.Enter)="pickActive($event)"
+             (keydown.Enter)="pickActive()"
              [ngClass]="{'slds-input': !polymorphic, 'slds-input--bare': polymorphic}"/></div>
   </div>
   <div class="slds-lookup__menu" *ngIf="expanded" role="listbox" [ngSwitch]="!!itemTemplate">

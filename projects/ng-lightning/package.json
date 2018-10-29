@@ -1,12 +1,12 @@
 {
   "name": "ng-lightning",
-  "version": "7.0.0",
+  "version": "6.0.0",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/common": "6.1.7",
+    "@angular/core": "6.1.7",
+    "rxjs": "^6.2.2"
   },
   "dependencies": {
-    "rxjs": "^6.3.3",
     "tether": "^1.4.5"
   }
 }

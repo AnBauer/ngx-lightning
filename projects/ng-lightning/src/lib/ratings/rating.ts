@@ -64,7 +64,8 @@ export class NglRatingComponent implements OnInit, AfterContentInit {
   @Output() rateChange = new EventEmitter<number>();
   @Output() hover = new EventEmitter<number>();
 
-  private _template: TemplateRef<any>;
+  _template: TemplateRef<any>;
+
   private _max = 5;
   private readonly = false;
   private inputRate: number;

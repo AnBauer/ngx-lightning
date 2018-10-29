@@ -74,6 +74,8 @@ export class NglLookupComponent implements OnInit, OnChanges, AfterViewChecked, 
 
   inputId = uniqueId('lookup_input');
 
+  suggestions: any[];
+
   _label: string | TemplateRef<any>;
 
   private globalClickUnsubscriber: Function = null;
@@ -98,11 +100,11 @@ export class NglLookupComponent implements OnInit, OnChanges, AfterViewChecked, 
     return this._open;
   }
 
-  private inputValue = '';
+  inputValue = '';
+  noResults = false;
+  activeIndex = -1;
+
   private inputSubject = new BehaviorSubject(undefined);
-  private suggestions: any[];
-  private noResults = false;
-  private activeIndex = -1;
   private lastUserInput: string;
   private pendingFocus = false;
 

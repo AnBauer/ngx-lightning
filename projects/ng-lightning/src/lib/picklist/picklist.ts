@@ -83,12 +83,13 @@ export class NglPicklistComponent implements AfterContentInit, OnDestroy {
     return typeof(this.filterType) !== 'undefined';
   }
 
+  filter = '';
+
   private _data: any[];
   private _open = false;
   private _changeSubscription: any;
   private _disabled = false;
   private _fluid = false;
-  private filter = '';
   private filterActiveIndex = 0;
   private hasFilterFocus = false;
 
