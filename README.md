@@ -1,27 +1,13 @@
-# NgLightningApp
+#About
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+My current project for a big client used [ng-lightning](https://github.com/ng-lightning/ng-lightning) and was therefore dependent on rxjs-compat for updates to Angular >= 6. 
 
-## Development server
+My employer [leanovate](https://github.com/leanovate) enables developers to use up to 20% of his/her time for learning. So I decided to migrate ng-lightning to ng6...     
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This started as a fork with the goal of a PR with all changes needed. 
+But it seems, the original project does not get that much attention from the original contributers anylonger. This is not meant as blaming or something like that! 
+Just my experience from getting no response on gitter and from looking at the responses in the issues section.
 
-## Code scaffolding
+That is why this new repository exists. 
+  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
