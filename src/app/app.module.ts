@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgLightningModule } from 'ng-lightning';
+import { NglModule } from 'ngx-lightning';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { NgLightningModule } from 'ng-lightning';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgLightningModule
+    NglModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

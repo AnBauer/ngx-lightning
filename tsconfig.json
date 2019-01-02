@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "ng-lightning": [
-        "dist/ng-lightning"
+      "ngx-lightning": [
+        "dist/ngx-lightning"
       ],
-      "ng-lightning/*": [
-        "dist/ng-lightning/*"
+      "ngx-lightning/*": [
+        "dist/ngx-lightning/*"
       ]
     }
   }

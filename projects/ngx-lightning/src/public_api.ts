@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ng-lightning
+ * Public API Surface of ngx-lightning
  */
 
 export * from './lib/badges/badge';
