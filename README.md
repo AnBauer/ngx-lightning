@@ -1,4 +1,4 @@
-#About
+# About
 
 This library is an Angular 6+ ready version of ng-lightning and contains native Angular components and directives written from scratch in TypeScript using the Lightning Design System CSS framework.
 
