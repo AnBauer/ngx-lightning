@@ -28,7 +28,7 @@ Due to the PR / own project questions I messed up the git history. So you cannot
 Install through `npm`:
 
 ```bash
-npm install --save ng-lightning
+npm install --save ngx-lightning
 ```
 
 ## Documentation
