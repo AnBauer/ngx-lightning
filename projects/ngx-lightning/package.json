@@ -2,7 +2,7 @@
   "name": "ngx-lightning",
   "license" : "MIT",
   "author": "André Bauer <andre.bauer@leanovate.de>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords" :["angular","ng-lightning", "salesforce","lightning design systen"],
   "bugs": {
     "url": "https://github.com/AnBauer/ngx-lightning/issues"
