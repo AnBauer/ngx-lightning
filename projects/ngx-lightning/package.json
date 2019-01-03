@@ -1,6 +1,16 @@
 {
   "name": "ngx-lightning",
-  "version": "1.0.0",
+  "license" : "MIT",
+  "author": "André Bauer <andre.bauer@leanovate.de>",
+  "version": "1.0.1",
+  "keywords" :["angular","ng-lightning", "salesforce","lightning design systen"],
+  "bugs": {
+    "url": "https://github.com/AnBauer/ngx-lightning/issues"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/AnBauer/ngx-lightning"
+  },
   "peerDependencies": {
     "@angular/common": ">=6",
     "@angular/core": ">=6",
