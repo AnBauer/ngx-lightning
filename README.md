@@ -1,4 +1,5 @@
 #About
+
 This library is an Angular 6+ ready version of ng-lightning and contains native Angular components and directives written from scratch in TypeScript using the Lightning Design System CSS framework.
 
 My current project for a big client used [ng-lightning](https://github.com/ng-lightning/ng-lightning) and was therefore dependent on rxjs-compat for updates to Angular >= 6. 
