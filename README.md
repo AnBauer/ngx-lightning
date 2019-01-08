@@ -49,7 +49,7 @@ If you have an angular-cli project, you can integrate it by:
     * fonts -> ../../node_modules/@salesforce-ux/design-system/assets/fonts
     * icons -> ../../node_modules/@salesforce-ux/design-system/assets/icons
     * images -> ../../node_modules/@salesforce-ux/design-system/assets/images
-* Include these asset directorie in the `assets` section of your angular.json
+* Include these asset directories in the `assets` section of your angular.json
 * Import the styles in your styles.scss
   * `@import "salesforce-ux/scss/index";`  
 
