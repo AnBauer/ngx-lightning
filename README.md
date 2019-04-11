@@ -1,4 +1,5 @@
 #DEPRECATED
+
 You can read about the reasons, why this project exists down below. The original one got back on track and I will spend my available time
 with helping out at [ng-lightning](https://github.com/ng-lightning/ng-lightning). The migration (back to) ng-lightning should be straight forward, so no worries.   
 
