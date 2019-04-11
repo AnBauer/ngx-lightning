@@ -1,1 +1,34 @@
-<div class="slds-datepicker__filter slds-grid"><div class="slds-datepicker__filter--month slds-grid slds-grid--align-spread slds-grow"><div class="slds-align-middle"><button class="slds-button slds-button--icon-container" type="button" (click)="keyboardHandler($event, 'MoveMonth', -1)"><svg class="slds-button__icon slds-button__icon--small" nglIcon="left"></svg><span class="slds-assistive-text">Previous Month</span></button></div><h2 class="slds-align-middle" [id]="uid + '_month'" aria-live="assertive" aria-atomic="true">{{ monthLabel }}</h2><div class="slds-align-middle"><button class="slds-button slds-button--icon-container" type="button" (click)="keyboardHandler($event, 'MoveMonth', 1)"><svg class="slds-button__icon slds-button__icon--small" nglIcon="right"></svg><span class="slds-assistive-text">Next Month</span></button></div></div><ngl-date-year class="slds-shrink-none" [year]="current.year" (yearChange)="moveYear($event)"></ngl-date-year></div><table class="datepicker__month" role="grid" [attr.aria-labelledby]="uid + '_month'"><thead><tr nglWeekdays="nglWeekdays" [firstDayOfWeek]="firstDayOfWeek" [dayNamesShort]="dayNamesShort" [dayNamesLong]="dayNamesLong"></tr></thead><tbody><tr *ngFor="let week of weeks; trackBy:indexTrackBy"><td *ngFor="let date of week" (click)="select(date)" [class.slds-is-today]="isActive(date)" [nglDay]="date.day" [nglDaySelected]="isSelected(date)" [nglDayDisabled]="date.disabled"></td></tr><tr *ngIf="showToday"><td colspan="7" role="gridcell"><a class="slds-show--inline-block slds-p-bottom--x-small" href="javascript:void(0)" (click)="selectToday()">Today</a></td></tr></tbody></table>
+<div class="slds-datepicker__filter slds-grid">
+  <div class="slds-datepicker__filter--month slds-grid slds-grid--align-spread slds-grow">
+    <div class="slds-align-middle">
+      <button class="slds-button slds-button--icon-container" type="button"
+              (click)="keyboardHandler($event, 'MoveMonth', -1)">
+        <svg class="slds-button__icon slds-button__icon--small" nglIcon="left"></svg>
+        <span class="slds-assistive-text">Previous Month</span></button>
+    </div>
+    <h2 class="slds-align-middle" [id]="uid + '_month'" aria-live="assertive" aria-atomic="true">{{ monthLabel }}</h2>
+    <div class="slds-align-middle">
+      <button class="slds-button slds-button--icon-container" type="button"
+              (click)="keyboardHandler($event, 'MoveMonth', 1)">
+        <svg class="slds-button__icon slds-button__icon--small" nglIcon="right"></svg>
+        <span class="slds-assistive-text">Next Month</span></button>
+    </div>
+  </div>
+  <ngl-date-year class="slds-shrink-none" [year]="current.year" (yearChange)="moveYear($event)"></ngl-date-year>
+</div>
+<table class="datepicker__month" role="grid" [attr.aria-labelledby]="uid + '_month'">
+  <thead>
+  <tr nglWeekdays="nglWeekdays" [firstDayOfWeek]="firstDayOfWeek" [dayNamesShort]="dayNamesShort"
+      [dayNamesLong]="dayNamesLong"></tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let week of weeks; trackBy:indexTrackBy">
+    <td *ngFor="let date of week" (click)="select(date)" [class.slds-is-today]="isActive(date)" [nglDay]="date.day"
+        [nglDaySelected]="isSelected(date)" [nglDayDisabled]="date.disabled"></td>
+  </tr>
+  <tr *ngIf="showToday">
+    <td colspan="7" role="gridcell"><a class="slds-show--inline-block slds-p-bottom--x-small" href="javascript:void(0)"
+                                       (click)="selectToday()">Today</a></td>
+  </tr>
+  </tbody>
+</table>
